@@ -1,0 +1,12 @@
+[
+  {
+    "shipment_code": "SHIP-7001",
+    "so_code": "SO-2001",
+    "ship_from_location_code": "PLANT-CS",
+    "ship_to_name": "Acme Manufacturing Co.",
+    "carrier": "FedEx Freight",
+    "tracking_number": "FXF-7001",
+    "shipped_at": "2026-04-21T13:45:00Z",
+    "status": "in_transit"
+  }
+]

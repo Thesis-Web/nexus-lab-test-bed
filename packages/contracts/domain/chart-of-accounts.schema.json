@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/chart-of-accounts.schema.json",
+  "title": "chart-of-accounts",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "account_code": {
+        "type": "string",
+        "pattern": "^[0-9]{4}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "account_type": {
+        "type": "string",
+        "enum": ["asset", "liability", "equity", "revenue", "expense"]
+      },
+      "normal_balance": {
+        "type": "string",
+        "enum": ["debit", "credit"]
+      },
+      "is_control_account": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "account_code",
+      "name",
+      "account_type",
+      "normal_balance",
+      "is_control_account"
+    ]
+  }
+}

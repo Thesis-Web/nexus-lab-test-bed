@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/maintenance-ticket.schema.json",
+  "title": "maintenance-ticket",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "ticket_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "asset_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "opened_at": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/datetime"
+      },
+      "priority": {
+        "type": "string",
+        "enum": ["low", "medium", "high", "critical"]
+      },
+      "status": {
+        "type": "string",
+        "minLength": 1
+      },
+      "maintenance_type": {
+        "type": "string",
+        "minLength": 1
+      },
+      "summary": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "ticket_code",
+      "asset_code",
+      "opened_at",
+      "priority",
+      "status",
+      "maintenance_type",
+      "summary"
+    ]
+  }
+}

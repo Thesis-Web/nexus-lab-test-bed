@@ -1,0 +1,22 @@
+[
+  {
+    "so_code": "SO-2001",
+    "customer_account_code": "CUST-ACME",
+    "ordered_at": "2026-04-20T09:05:00Z",
+    "requested_ship_at": "2026-04-22T17:00:00Z",
+    "status": "partially_allocated",
+    "currency": "USD",
+    "sales_rep_actor_id": "account-rep",
+    "notes": "Priority customer replenishment."
+  },
+  {
+    "so_code": "SO-2002",
+    "customer_account_code": "CUST-SKYRIDGE",
+    "ordered_at": "2026-04-21T08:40:00Z",
+    "requested_ship_at": "2026-04-24T17:00:00Z",
+    "status": "open",
+    "currency": "USD",
+    "sales_rep_actor_id": "sales-lead",
+    "notes": "New project ramp order."
+  }
+]

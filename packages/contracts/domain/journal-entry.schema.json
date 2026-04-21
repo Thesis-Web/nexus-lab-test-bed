@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/journal-entry.schema.json",
+  "title": "journal-entry",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "journal_entry_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "entry_date": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/date"
+      },
+      "memo": {
+        "type": "string",
+        "minLength": 1
+      },
+      "source_type": {
+        "type": "string",
+        "minLength": 1
+      },
+      "source_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "status": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "journal_entry_code",
+      "entry_date",
+      "memo",
+      "source_type",
+      "source_code",
+      "status"
+    ]
+  }
+}

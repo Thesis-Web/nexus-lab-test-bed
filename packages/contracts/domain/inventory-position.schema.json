@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/inventory-position.schema.json",
+  "title": "inventory-position",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "position_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "product_sku": {
+        "type": "string",
+        "pattern": "^[A-Z0-9][A-Z0-9-]*$"
+      },
+      "location_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "quantity_on_hand": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/quantity"
+      },
+      "quantity_reserved": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/quantity"
+      },
+      "snapshot_at": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/datetime"
+      }
+    },
+    "required": [
+      "position_code",
+      "product_sku",
+      "location_code",
+      "quantity_on_hand",
+      "quantity_reserved",
+      "snapshot_at"
+    ]
+  }
+}

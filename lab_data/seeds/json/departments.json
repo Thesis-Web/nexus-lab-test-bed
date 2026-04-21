@@ -1,0 +1,72 @@
+[
+  {
+    "department_code": "EXEC",
+    "name": "Executive",
+    "cost_center_code": "CC-100",
+    "manager_actor_id": "human-lab-owner",
+    "is_active": true
+  },
+  {
+    "department_code": "OPER",
+    "name": "Operations",
+    "cost_center_code": "CC-200",
+    "manager_actor_id": "ops-manager",
+    "is_active": true
+  },
+  {
+    "department_code": "SALES",
+    "name": "Sales",
+    "cost_center_code": "CC-300",
+    "manager_actor_id": "sales-lead",
+    "is_active": true
+  },
+  {
+    "department_code": "FIN",
+    "name": "Finance",
+    "cost_center_code": "CC-400",
+    "manager_actor_id": "finance-lead",
+    "is_active": true
+  },
+  {
+    "department_code": "PURCH",
+    "name": "Purchasing",
+    "cost_center_code": "CC-500",
+    "manager_actor_id": "purchasing-agent",
+    "is_active": true
+  },
+  {
+    "department_code": "PROD",
+    "name": "Production",
+    "cost_center_code": "CC-600",
+    "manager_actor_id": "production-coordinator",
+    "is_active": true
+  },
+  {
+    "department_code": "MAINT",
+    "name": "Maintenance",
+    "cost_center_code": "CC-700",
+    "manager_actor_id": "maintenance-lead",
+    "is_active": true
+  },
+  {
+    "department_code": "ENG",
+    "name": "Engineering",
+    "cost_center_code": "CC-800",
+    "manager_actor_id": "engineer",
+    "is_active": true
+  },
+  {
+    "department_code": "SUPPORT",
+    "name": "Customer Support",
+    "cost_center_code": "CC-900",
+    "manager_actor_id": "support-lead",
+    "is_active": true
+  },
+  {
+    "department_code": "LOG",
+    "name": "Logistics",
+    "cost_center_code": "CC-950",
+    "manager_actor_id": "shipping-coordinator",
+    "is_active": true
+  }
+]

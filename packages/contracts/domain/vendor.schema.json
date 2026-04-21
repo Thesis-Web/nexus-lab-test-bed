@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/vendor.schema.json",
+  "title": "vendor",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "vendor_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "primary_contact": {
+        "type": "string",
+        "minLength": 1
+      },
+      "email": {
+        "type": "string",
+        "format": "email"
+      },
+      "phone": {
+        "type": "string",
+        "minLength": 1
+      },
+      "payment_terms": {
+        "type": "string",
+        "minLength": 1
+      },
+      "category": {
+        "type": "string",
+        "minLength": 1
+      },
+      "primary_location_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "is_active": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "vendor_code",
+      "name",
+      "primary_contact",
+      "email",
+      "payment_terms",
+      "category",
+      "primary_location_code",
+      "is_active"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "task_code": "TASK-6101",
+    "title": "Update outbound ETA for Acme",
+    "assignee_actor_id": "shipping-coordinator",
+    "related_entity_type": "shipment",
+    "related_entity_code": "SHIP-7001",
+    "priority": "high",
+    "status": "in_progress",
+    "due_at": "2026-04-21T17:00:00Z",
+    "description": "Contact carrier and update customer-facing ETA."
+  },
+  {
+    "task_code": "TASK-6102",
+    "title": "Review partial allocation policy for SO-2002",
+    "assignee_actor_id": "ops-manager",
+    "related_entity_type": "sales_order",
+    "related_entity_code": "SO-2002",
+    "priority": "medium",
+    "status": "open",
+    "due_at": "2026-04-22T16:00:00Z",
+    "description": "Determine whether owner approval is needed for reallocating finished assemblies."
+  }
+]

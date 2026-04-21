@@ -1,0 +1,10 @@
+[
+  {
+    "payment_code": "PAY-9101",
+    "invoice_code": "INV-9001",
+    "received_at": "2026-04-21T18:10:00Z",
+    "amount": 1500.0,
+    "method": "ACH",
+    "reference_number": "ACME-ACH-0418"
+  }
+]

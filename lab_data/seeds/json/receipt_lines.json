@@ -1,0 +1,18 @@
+[
+  {
+    "receipt_code": "RCPT-1001",
+    "line_number": 1,
+    "product_sku": "RM-STEEL-BAR",
+    "quantity_received": 400,
+    "quantity_accepted": 398,
+    "quantity_rejected": 2
+  },
+  {
+    "receipt_code": "RCPT-1001",
+    "line_number": 2,
+    "product_sku": "PKG-CRATE-LG",
+    "quantity_received": 6,
+    "quantity_accepted": 6,
+    "quantity_rejected": 0
+  }
+]

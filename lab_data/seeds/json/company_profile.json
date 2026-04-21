@@ -1,0 +1,12 @@
+[
+  {
+    "company_code": "NEXLAB-CO",
+    "legal_name": "Nexus Lab Industrial Systems LLC",
+    "dba_name": "Nexus Lab Industrial",
+    "industry": "Discrete Manufacturing and Distribution",
+    "base_currency": "USD",
+    "fiscal_year_start_month": 1,
+    "headquarters_location_code": "OFFICE-AUSTIN",
+    "description": "Synthetic company sandbox for validating governance, routing, and execution systems against realistic operational state."
+  }
+]

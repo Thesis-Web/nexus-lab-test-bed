@@ -1,0 +1,29 @@
+[
+  {
+    "wo_code": "WO-3001",
+    "operation_seq": 10,
+    "work_center": "MACH-CELL-A",
+    "description": "Machine joint housing",
+    "status": "complete",
+    "planned_hours": 6.0,
+    "actual_hours": 5.5
+  },
+  {
+    "wo_code": "WO-3001",
+    "operation_seq": 20,
+    "work_center": "ASSY-CELL-2",
+    "description": "Assemble servo drive and harness",
+    "status": "in_progress",
+    "planned_hours": 8.0,
+    "actual_hours": 3.5
+  },
+  {
+    "wo_code": "WO-3001",
+    "operation_seq": 30,
+    "work_center": "TEST-BENCH-1",
+    "description": "Functional test",
+    "status": "planned",
+    "planned_hours": 4.0,
+    "actual_hours": 0.0
+  }
+]

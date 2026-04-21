@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/company-profile.schema.json",
+  "title": "company-profile",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "company_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "legal_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "dba_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "industry": {
+        "type": "string",
+        "minLength": 1
+      },
+      "base_currency": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/currency"
+      },
+      "fiscal_year_start_month": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 12
+      },
+      "headquarters_location_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "description": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "company_code",
+      "legal_name",
+      "base_currency",
+      "fiscal_year_start_month",
+      "headquarters_location_code",
+      "description"
+    ]
+  }
+}

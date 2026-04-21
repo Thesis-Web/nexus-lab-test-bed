@@ -1,0 +1,10 @@
+[
+  {
+    "journal_entry_code": "JE-8099",
+    "entry_date": "2026-04-25",
+    "memo": "Weekly finance close-lite inventory review",
+    "source_type": "weekly_close",
+    "source_code": "WK-2026-17",
+    "status": "draft"
+  }
+]

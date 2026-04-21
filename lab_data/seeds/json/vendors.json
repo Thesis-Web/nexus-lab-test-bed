@@ -1,0 +1,35 @@
+[
+  {
+    "vendor_code": "VEND-STEEL",
+    "name": "Gulf Steel Supply",
+    "primary_contact": "Nora Ellis",
+    "email": "orders@gulfsteel.example",
+    "phone": "+1-555-0201",
+    "payment_terms": "NET30",
+    "category": "raw_material",
+    "primary_location_code": "PLANT-CS",
+    "is_active": true
+  },
+  {
+    "vendor_code": "VEND-CONTROLS",
+    "name": "Lone Star Motion Controls",
+    "primary_contact": "Eli Grant",
+    "email": "sales@lsmotion.example",
+    "phone": "+1-555-0202",
+    "payment_terms": "NET15",
+    "category": "electronics",
+    "primary_location_code": "OFFICE-AUSTIN",
+    "is_active": true
+  },
+  {
+    "vendor_code": "VEND-PACK",
+    "name": "Central Packaging Group",
+    "primary_contact": "Ava Brooks",
+    "email": "ops@centralpack.example",
+    "phone": "+1-555-0203",
+    "payment_terms": "NET30",
+    "category": "packaging",
+    "primary_location_code": "WH-HOUSTON",
+    "is_active": true
+  }
+]

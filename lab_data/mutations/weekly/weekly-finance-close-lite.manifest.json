@@ -1,0 +1,11 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/contracts/domain/mutation-manifest.schema.json",
+  "mutation_id": "weekly-finance-close-lite",
+  "version": "v1-0-0",
+  "cadence": "weekly",
+  "effective_at": "2026-04-25T22:00:00Z",
+  "target_domain": "journal_entries",
+  "source_path": "lab_data/mutations/weekly/weekly-finance-close-lite.data.json",
+  "replay_mode": "append",
+  "description": "Synthetic weekly finance close-lite snapshot entries."
+}

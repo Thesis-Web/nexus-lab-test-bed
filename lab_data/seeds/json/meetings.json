@@ -1,0 +1,13 @@
+[
+  {
+    "meeting_code": "MTG-6001",
+    "title": "Weekly operations review",
+    "scheduled_start": "2026-04-21T14:00:00Z",
+    "scheduled_end": "2026-04-21T14:45:00Z",
+    "location": "Teams - Ops Bridge",
+    "organizer_actor_id": "ops-manager",
+    "meeting_type": "internal",
+    "status": "scheduled",
+    "notes": "Review constrained inventory, outbound delays, and maintenance blockers."
+  }
+]

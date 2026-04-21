@@ -1,0 +1,10 @@
+[
+  {
+    "receipt_code": "RCPT-1001",
+    "po_code": "PO-1001",
+    "location_code": "PLANT-CS",
+    "received_at": "2026-04-20T15:10:00Z",
+    "status": "received",
+    "notes": "First truckload unloaded without damage."
+  }
+]

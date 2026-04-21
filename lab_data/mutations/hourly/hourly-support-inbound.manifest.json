@@ -1,0 +1,11 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/contracts/domain/mutation-manifest.schema.json",
+  "mutation_id": "hourly-support-inbound",
+  "version": "v1-0-0",
+  "cadence": "hourly",
+  "effective_at": "2026-04-21T13:00:00Z",
+  "target_domain": "support_tickets",
+  "source_path": "lab_data/mutations/hourly/hourly-support-inbound.data.json",
+  "replay_mode": "append",
+  "description": "Simulated hourly inbound support contacts for open customer orders."
+}

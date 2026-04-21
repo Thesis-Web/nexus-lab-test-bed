@@ -1,13 +1,31 @@
 {
   "schema_id": "https://nexus-lab-test-bed.local/schemas/seed-manifest.schema.json",
   "manifest_id": "domain-seed-base",
-  "version": "v1-0-1",
-  "generated_at": "2026-04-20T00:00:00Z",
+  "version": "v1-1-0",
+  "generated_at": "2026-04-21T00:00:00Z",
   "seeds": [
+    {
+      "seed_id": "seed-company-profile",
+      "table_name": "company_profile",
+      "source_path": "lab_data/seeds/json/company_profile.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-departments",
+      "table_name": "departments",
+      "source_path": "lab_data/seeds/json/departments.json",
+      "on_conflict": "replace"
+    },
     {
       "seed_id": "seed-locations",
       "table_name": "locations",
       "source_path": "lab_data/seeds/json/locations.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-vendors",
+      "table_name": "vendors",
+      "source_path": "lab_data/seeds/json/vendors.json",
       "on_conflict": "replace"
     },
     {
@@ -17,9 +35,153 @@
       "on_conflict": "replace"
     },
     {
+      "seed_id": "seed-assets",
+      "table_name": "assets",
+      "source_path": "lab_data/seeds/json/assets.json",
+      "on_conflict": "replace"
+    },
+    {
       "seed_id": "seed-customers",
       "table_name": "customers",
       "source_path": "lab_data/seeds/json/customers.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-chart-accounts",
+      "table_name": "chart_accounts",
+      "source_path": "lab_data/seeds/json/chart_accounts.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-inventory-positions",
+      "table_name": "inventory_positions",
+      "source_path": "lab_data/seeds/json/inventory_positions.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-inventory-movements",
+      "table_name": "inventory_movements",
+      "source_path": "lab_data/seeds/json/inventory_movements.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-purchase-orders",
+      "table_name": "purchase_orders",
+      "source_path": "lab_data/seeds/json/purchase_orders.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-purchase-order-lines",
+      "table_name": "purchase_order_lines",
+      "source_path": "lab_data/seeds/json/purchase_order_lines.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-receipts",
+      "table_name": "receipts",
+      "source_path": "lab_data/seeds/json/receipts.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-receipt-lines",
+      "table_name": "receipt_lines",
+      "source_path": "lab_data/seeds/json/receipt_lines.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-work-orders",
+      "table_name": "work_orders",
+      "source_path": "lab_data/seeds/json/work_orders.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-work-order-operations",
+      "table_name": "work_order_operations",
+      "source_path": "lab_data/seeds/json/work_order_operations.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-maintenance-tickets",
+      "table_name": "maintenance_tickets",
+      "source_path": "lab_data/seeds/json/maintenance_tickets.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-sales-orders",
+      "table_name": "sales_orders",
+      "source_path": "lab_data/seeds/json/sales_orders.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-sales-order-lines",
+      "table_name": "sales_order_lines",
+      "source_path": "lab_data/seeds/json/sales_order_lines.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-shipments",
+      "table_name": "shipments",
+      "source_path": "lab_data/seeds/json/shipments.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-shipment-lines",
+      "table_name": "shipment_lines",
+      "source_path": "lab_data/seeds/json/shipment_lines.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-invoices",
+      "table_name": "invoices",
+      "source_path": "lab_data/seeds/json/invoices.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-payments",
+      "table_name": "payments",
+      "source_path": "lab_data/seeds/json/payments.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-journal-entries",
+      "table_name": "journal_entries",
+      "source_path": "lab_data/seeds/json/journal_entries.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-journal-entry-lines",
+      "table_name": "journal_entry_lines",
+      "source_path": "lab_data/seeds/json/journal_entry_lines.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-meetings",
+      "table_name": "meetings",
+      "source_path": "lab_data/seeds/json/meetings.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-meeting-action-items",
+      "table_name": "meeting_action_items",
+      "source_path": "lab_data/seeds/json/meeting_action_items.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-tasks",
+      "table_name": "tasks",
+      "source_path": "lab_data/seeds/json/tasks.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-support-tickets",
+      "table_name": "support_tickets",
+      "source_path": "lab_data/seeds/json/support_tickets.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-call-logs",
+      "table_name": "call_logs",
+      "source_path": "lab_data/seeds/json/call_logs.json",
       "on_conflict": "replace"
     },
     {

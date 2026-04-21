@@ -1,0 +1,21 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/scenario-pack.schema.json",
+  "pack_id": "support-pack",
+  "version": "v1-0-0",
+  "title": "Support pack",
+  "scenario_manifests": [
+    "lab_data/scenarios/packs/support/customer-complaint-triage.scenario.json"
+  ],
+  "supporting_data": [
+    "lab_data/seeds/json/support_tickets.json",
+    "lab_data/seeds/json/call_logs.json"
+  ],
+  "corpora_refs": [
+    "lab_data/corpus/email/customer-complaint-001.eml",
+    "lab_data/corpus/calls/customer-delay-call-001.txt"
+  ],
+  "expected_assertions": [
+    "Local complaint summarization is allowed.",
+    "Support execution is not silently allowed."
+  ]
+}

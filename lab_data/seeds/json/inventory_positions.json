@@ -1,0 +1,50 @@
+[
+  {
+    "position_code": "INVPOS-001",
+    "product_sku": "WIDGET-ALPHA",
+    "location_code": "PLANT-CS",
+    "quantity_on_hand": 120,
+    "quantity_reserved": 35,
+    "snapshot_at": "2026-04-21T08:00:00Z"
+  },
+  {
+    "position_code": "INVPOS-002",
+    "product_sku": "WIDGET-BETA",
+    "location_code": "PLANT-CS",
+    "quantity_on_hand": 48,
+    "quantity_reserved": 18,
+    "snapshot_at": "2026-04-21T08:00:00Z"
+  },
+  {
+    "position_code": "INVPOS-003",
+    "product_sku": "ASM-ROBOTIC-ARM",
+    "location_code": "WH-HOUSTON",
+    "quantity_on_hand": 6,
+    "quantity_reserved": 2,
+    "snapshot_at": "2026-04-21T08:00:00Z"
+  },
+  {
+    "position_code": "INVPOS-004",
+    "product_sku": "RM-STEEL-BAR",
+    "location_code": "PLANT-CS",
+    "quantity_on_hand": 860,
+    "quantity_reserved": 120,
+    "snapshot_at": "2026-04-21T08:00:00Z"
+  },
+  {
+    "position_code": "INVPOS-005",
+    "product_sku": "RM-SERVO-DRV",
+    "location_code": "PLANT-CS",
+    "quantity_on_hand": 22,
+    "quantity_reserved": 6,
+    "snapshot_at": "2026-04-21T08:00:00Z"
+  },
+  {
+    "position_code": "INVPOS-006",
+    "product_sku": "PKG-CRATE-LG",
+    "location_code": "WH-HOUSTON",
+    "quantity_on_hand": 15,
+    "quantity_reserved": 3,
+    "snapshot_at": "2026-04-21T08:00:00Z"
+  }
+]

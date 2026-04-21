@@ -1,0 +1,38 @@
+[
+  {
+    "movement_code": "INVMOVE-001",
+    "movement_type": "receipt",
+    "product_sku": "RM-STEEL-BAR",
+    "from_location_code": null,
+    "to_location_code": "PLANT-CS",
+    "quantity": 400,
+    "unit_of_measure": "FT",
+    "effective_at": "2026-04-20T15:10:00Z",
+    "reference_code": "RCPT-1001",
+    "notes": "Steel bar receipt."
+  },
+  {
+    "movement_code": "INVMOVE-002",
+    "movement_type": "issue_to_work_order",
+    "product_sku": "RM-SERVO-DRV",
+    "from_location_code": "PLANT-CS",
+    "to_location_code": "PLANT-CS",
+    "quantity": 4,
+    "unit_of_measure": "EA",
+    "effective_at": "2026-04-21T09:00:00Z",
+    "reference_code": "WO-3001",
+    "notes": "Issued to robotic arm work order."
+  },
+  {
+    "movement_code": "INVMOVE-003",
+    "movement_type": "shipment",
+    "product_sku": "WIDGET-ALPHA",
+    "from_location_code": "PLANT-CS",
+    "to_location_code": null,
+    "quantity": 20,
+    "unit_of_measure": "EA",
+    "effective_at": "2026-04-21T13:45:00Z",
+    "reference_code": "SHIP-7001",
+    "notes": "Customer shipment."
+  }
+]

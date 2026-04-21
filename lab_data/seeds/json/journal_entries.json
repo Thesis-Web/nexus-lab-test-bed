@@ -1,0 +1,18 @@
+[
+  {
+    "journal_entry_code": "JE-8001",
+    "entry_date": "2026-04-21",
+    "memo": "Invoice INV-9001 issue",
+    "source_type": "invoice",
+    "source_code": "INV-9001",
+    "status": "posted"
+  },
+  {
+    "journal_entry_code": "JE-8002",
+    "entry_date": "2026-04-21",
+    "memo": "Partial cash receipt PAY-9101",
+    "source_type": "payment",
+    "source_code": "PAY-9101",
+    "status": "posted"
+  }
+]

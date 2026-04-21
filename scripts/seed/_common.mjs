@@ -55,3 +55,22 @@ export async function withSeedHistory(client, manifestId, manifestVersion, fn) {
     throw error;
   }
 }
+
+export async function upsertByColumns(client, tableName, rows, config) {
+  const { keyColumns, allColumns, updateColumns } = config;
+  for (const row of rows) {
+    const values = allColumns.map((column) => row[column] ?? null);
+    const placeholders = allColumns
+      .map((_, index) => `$${index + 1}`)
+      .join(", ");
+    const updateSet = updateColumns
+      .map((column) => `${column} = EXCLUDED.${column}`)
+      .concat(config.touchUpdatedAt ? ["updated_at = NOW()"] : [])
+      .join(", ");
+    const sql = `INSERT INTO ${tableName} (${allColumns.join(", ")})
+      VALUES (${placeholders})
+      ON CONFLICT (${keyColumns.join(", ")})
+      DO UPDATE SET ${updateSet}`;
+    await client.query(sql, values);
+  }
+}

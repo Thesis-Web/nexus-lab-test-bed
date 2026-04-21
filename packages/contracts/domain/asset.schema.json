@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/asset.schema.json",
+  "title": "asset",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "asset_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "asset_type": {
+        "type": "string",
+        "minLength": 1
+      },
+      "location_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "department_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "status": {
+        "type": "string",
+        "minLength": 1
+      },
+      "maintenance_interval_days": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "installed_on": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/date"
+      }
+    },
+    "required": [
+      "asset_code",
+      "name",
+      "asset_type",
+      "location_code",
+      "department_code",
+      "status",
+      "maintenance_interval_days",
+      "installed_on"
+    ]
+  }
+}

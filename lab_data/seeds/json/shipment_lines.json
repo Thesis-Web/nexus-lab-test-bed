@@ -1,0 +1,14 @@
+[
+  {
+    "shipment_code": "SHIP-7001",
+    "line_number": 1,
+    "product_sku": "WIDGET-ALPHA",
+    "quantity_shipped": 20
+  },
+  {
+    "shipment_code": "SHIP-7001",
+    "line_number": 2,
+    "product_sku": "WIDGET-BETA",
+    "quantity_shipped": 8
+  }
+]

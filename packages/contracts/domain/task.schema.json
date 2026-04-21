@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/task.schema.json",
+  "title": "task",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "task_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1
+      },
+      "assignee_actor_id": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/slug"
+      },
+      "related_entity_type": {
+        "type": "string",
+        "minLength": 1
+      },
+      "related_entity_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "priority": {
+        "type": "string",
+        "enum": ["low", "medium", "high", "urgent"]
+      },
+      "status": {
+        "type": "string",
+        "minLength": 1
+      },
+      "due_at": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/datetime"
+      },
+      "description": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "task_code",
+      "title",
+      "assignee_actor_id",
+      "related_entity_type",
+      "related_entity_code",
+      "priority",
+      "status",
+      "due_at",
+      "description"
+    ]
+  }
+}

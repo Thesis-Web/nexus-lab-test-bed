@@ -1,0 +1,23 @@
+[
+  {
+    "po_code": "PO-1001",
+    "line_number": 1,
+    "product_sku": "RM-STEEL-BAR",
+    "quantity_ordered": 600,
+    "unit_cost": 12.5
+  },
+  {
+    "po_code": "PO-1001",
+    "line_number": 2,
+    "product_sku": "PKG-CRATE-LG",
+    "quantity_ordered": 10,
+    "unit_cost": 48.0
+  },
+  {
+    "po_code": "PO-1002",
+    "line_number": 1,
+    "product_sku": "RM-SERVO-DRV",
+    "quantity_ordered": 12,
+    "unit_cost": 275.0
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "asset_code": "CNC-01",
+    "name": "Mazak Turning Center",
+    "asset_type": "machine",
+    "location_code": "PLANT-CS",
+    "department_code": "PROD",
+    "status": "active",
+    "maintenance_interval_days": 30,
+    "installed_on": "2025-02-10"
+  },
+  {
+    "asset_code": "FORKLIFT-01",
+    "name": "Yale Forklift",
+    "asset_type": "vehicle",
+    "location_code": "WH-HOUSTON",
+    "department_code": "LOG",
+    "status": "active",
+    "maintenance_interval_days": 45,
+    "installed_on": "2024-11-01"
+  },
+  {
+    "asset_code": "PACKLINE-01",
+    "name": "Outbound Pack Line",
+    "asset_type": "line",
+    "location_code": "WH-HOUSTON",
+    "department_code": "LOG",
+    "status": "active",
+    "maintenance_interval_days": 14,
+    "installed_on": "2025-01-20"
+  }
+]

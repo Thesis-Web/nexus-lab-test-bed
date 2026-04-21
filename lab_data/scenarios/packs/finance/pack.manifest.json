@@ -1,0 +1,23 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/scenario-pack.schema.json",
+  "pack_id": "finance-pack",
+  "version": "v1-0-0",
+  "title": "Finance pack",
+  "scenario_manifests": [
+    "lab_data/scenarios/packs/finance/invoice-discrepancy-review.scenario.json"
+  ],
+  "supporting_data": [
+    "lab_data/seeds/json/invoices.json",
+    "lab_data/seeds/json/payments.json",
+    "lab_data/seeds/json/journal_entries.json",
+    "lab_data/seeds/json/journal_entry_lines.json"
+  ],
+  "corpora_refs": [
+    "lab_data/corpus/pdfs/invoice-inv-9001.pdf",
+    "lab_data/corpus/workbooks/inventory-forecast-weekly.xlsx"
+  ],
+  "expected_assertions": [
+    "Finance execution does not bypass approval.",
+    "Accounting context is represented in both structured data and corpus."
+  ]
+}

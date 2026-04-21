@@ -1,0 +1,34 @@
+[
+  {
+    "journal_entry_code": "JE-8001",
+    "line_number": 1,
+    "account_code": "1200",
+    "entry_type": "debit",
+    "amount": 4580.0,
+    "description": "Record receivable"
+  },
+  {
+    "journal_entry_code": "JE-8001",
+    "line_number": 2,
+    "account_code": "4000",
+    "entry_type": "credit",
+    "amount": 4580.0,
+    "description": "Recognize revenue"
+  },
+  {
+    "journal_entry_code": "JE-8002",
+    "line_number": 1,
+    "account_code": "1100",
+    "entry_type": "debit",
+    "amount": 1500.0,
+    "description": "Cash received"
+  },
+  {
+    "journal_entry_code": "JE-8002",
+    "line_number": 2,
+    "account_code": "1200",
+    "entry_type": "credit",
+    "amount": 1500.0,
+    "description": "Reduce receivable"
+  }
+]

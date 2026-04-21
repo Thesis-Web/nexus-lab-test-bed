@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/shipment-line.schema.json",
+  "title": "shipment-line",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "shipment_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "line_number": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "product_sku": {
+        "type": "string",
+        "pattern": "^[A-Z0-9][A-Z0-9-]*$"
+      },
+      "quantity_shipped": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/quantity"
+      }
+    },
+    "required": [
+      "shipment_code",
+      "line_number",
+      "product_sku",
+      "quantity_shipped"
+    ]
+  }
+}

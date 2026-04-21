@@ -1,0 +1,22 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/scenario-pack.schema.json",
+  "pack_id": "customer-ops-pack",
+  "version": "v1-0-0",
+  "title": "Customer operations pack",
+  "scenario_manifests": [
+    "lab_data/scenarios/packs/customer-ops/constrained-inventory-allocation.scenario.json"
+  ],
+  "supporting_data": [
+    "lab_data/seeds/json/inventory_positions.json",
+    "lab_data/seeds/json/sales_orders.json",
+    "lab_data/seeds/json/sales_order_lines.json"
+  ],
+  "corpora_refs": [
+    "lab_data/corpus/docs/sales-account-brief-skyridge.md",
+    "lab_data/corpus/email/customer-complaint-001.eml"
+  ],
+  "expected_assertions": [
+    "Constrained inventory data is available.",
+    "Allocation action paths are explicit and logged."
+  ]
+}

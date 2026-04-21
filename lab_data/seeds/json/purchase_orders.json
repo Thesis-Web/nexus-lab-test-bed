@@ -1,0 +1,22 @@
+[
+  {
+    "po_code": "PO-1001",
+    "vendor_code": "VEND-STEEL",
+    "ordered_at": "2026-04-18T14:20:00Z",
+    "expected_at": "2026-04-22T17:00:00Z",
+    "status": "partially_received",
+    "currency": "USD",
+    "buyer_actor_id": "purchasing-agent",
+    "notes": "April replenishment for machining line."
+  },
+  {
+    "po_code": "PO-1002",
+    "vendor_code": "VEND-CONTROLS",
+    "ordered_at": "2026-04-19T10:15:00Z",
+    "expected_at": "2026-04-24T17:00:00Z",
+    "status": "open",
+    "currency": "USD",
+    "buyer_actor_id": "purchasing-agent",
+    "notes": "Servo drive replenishment."
+  }
+]

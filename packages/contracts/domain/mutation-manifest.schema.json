@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/mutation-manifest.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "mutation_id",
+    "version",
+    "cadence",
+    "effective_at",
+    "target_domain",
+    "source_path",
+    "replay_mode",
+    "description"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "https://nexus-lab-test-bed.local/contracts/domain/mutation-manifest.schema.json"
+    },
+    "mutation_id": {
+      "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/slug"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^v\\d+-\\d+-\\d+$"
+    },
+    "cadence": {
+      "type": "string",
+      "enum": ["hourly", "daily", "weekly"]
+    },
+    "effective_at": {
+      "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/datetime"
+    },
+    "target_domain": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "replay_mode": {
+      "type": "string",
+      "enum": ["append", "upsert", "replace_set"]
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

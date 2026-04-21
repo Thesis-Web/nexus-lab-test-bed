@@ -1,0 +1,26 @@
+[
+  {
+    "so_code": "SO-2001",
+    "line_number": 1,
+    "product_sku": "WIDGET-ALPHA",
+    "quantity_ordered": 30,
+    "quantity_allocated": 20,
+    "unit_price": 145.0
+  },
+  {
+    "so_code": "SO-2001",
+    "line_number": 2,
+    "product_sku": "WIDGET-BETA",
+    "quantity_ordered": 12,
+    "quantity_allocated": 8,
+    "unit_price": 210.0
+  },
+  {
+    "so_code": "SO-2002",
+    "line_number": 1,
+    "product_sku": "ASM-ROBOTIC-ARM",
+    "quantity_ordered": 3,
+    "quantity_allocated": 1,
+    "unit_price": 4600.0
+  }
+]

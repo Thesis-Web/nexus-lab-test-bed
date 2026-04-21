@@ -1,0 +1,23 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/scenario-pack.schema.json",
+  "pack_id": "production-pack",
+  "version": "v1-0-0",
+  "title": "Production pack",
+  "scenario_manifests": [
+    "lab_data/scenarios/packs/production/maintenance-outage-handling.scenario.json"
+  ],
+  "supporting_data": [
+    "lab_data/seeds/json/work_orders.json",
+    "lab_data/seeds/json/work_order_operations.json",
+    "lab_data/seeds/json/maintenance_tickets.json",
+    "lab_data/seeds/json/assets.json"
+  ],
+  "corpora_refs": [
+    "lab_data/corpus/docs/maintenance-log-packline-01.md",
+    "lab_data/corpus/docs/sop-work-order-reschedule.md"
+  ],
+  "expected_assertions": [
+    "Maintenance outage context is available.",
+    "Internal production execution can be bounded and allowed."
+  ]
+}

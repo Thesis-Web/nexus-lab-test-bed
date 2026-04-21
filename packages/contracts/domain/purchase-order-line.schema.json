@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/purchase-order-line.schema.json",
+  "title": "purchase-order-line",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "po_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "line_number": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "product_sku": {
+        "type": "string",
+        "pattern": "^[A-Z0-9][A-Z0-9-]*$"
+      },
+      "quantity_ordered": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/quantity"
+      },
+      "unit_cost": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/money"
+      }
+    },
+    "required": [
+      "po_code",
+      "line_number",
+      "product_sku",
+      "quantity_ordered",
+      "unit_cost"
+    ]
+  }
+}

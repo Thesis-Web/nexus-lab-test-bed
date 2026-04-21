@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/support-ticket.schema.json",
+  "title": "support-ticket",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "support_ticket_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "customer_account_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "opened_at": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/datetime"
+      },
+      "channel": {
+        "type": "string",
+        "minLength": 1
+      },
+      "priority": {
+        "type": "string",
+        "enum": ["low", "medium", "high", "critical"]
+      },
+      "status": {
+        "type": "string",
+        "minLength": 1
+      },
+      "subject": {
+        "type": "string",
+        "minLength": 1
+      },
+      "summary": {
+        "type": "string",
+        "minLength": 1
+      },
+      "owner_actor_id": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/slug"
+      }
+    },
+    "required": [
+      "support_ticket_code",
+      "customer_account_code",
+      "opened_at",
+      "channel",
+      "priority",
+      "status",
+      "subject",
+      "summary",
+      "owner_actor_id"
+    ]
+  }
+}

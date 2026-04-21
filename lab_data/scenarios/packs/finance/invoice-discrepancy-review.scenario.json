@@ -1,0 +1,75 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/scenario-manifest.schema.json",
+  "scenario_id": "invoice-discrepancy-review",
+  "version": "v1-0-0",
+  "title": "Invoice discrepancy review",
+  "objective": "Validate finance review with approval-required execution handling.",
+  "actors_in_scope": [
+    "finance-lead",
+    "staff-accountant",
+    "service-vanguard",
+    "service-nexus",
+    "worker-scenario-runner-v1"
+  ],
+  "models_in_scope": [
+    "ollama-llama3_2-laptop"
+  ],
+  "policies_in_scope": [
+    "allow-fake-company-local-inference",
+    "allow-ops-logistics-execution",
+    "finance-execution-requires-approval",
+    "allow-bounded-worker-registry-and-log-writes"
+  ],
+  "inputs": {
+    "invoice_code": "INV-9001",
+    "payment_code": "PAY-9101",
+    "data_class": "restricted"
+  },
+  "steps": [
+    {
+      "step_id": "load-finance-context",
+      "kind": "registry_load",
+      "actor_id": "worker-scenario-runner-v1",
+      "requested_capability": "scenario.run",
+      "input_ref": "inputs.invoice_code",
+      "expected_outcome": {
+        "decision": "allow",
+        "reason_contains": [
+          "allow"
+        ]
+      }
+    },
+    {
+      "step_id": "finance-summary",
+      "kind": "inference_request",
+      "actor_id": "staff-accountant",
+      "requested_capability": "inference.request",
+      "model_id": "ollama-llama3_2-laptop",
+      "input_ref": "inputs.invoice_code",
+      "expected_outcome": {
+        "decision": "allow",
+        "reason_contains": [
+          "allow",
+          "local"
+        ]
+      }
+    },
+    {
+      "step_id": "finance-adjustment",
+      "kind": "execution_request",
+      "actor_id": "finance-lead",
+      "requested_capability": "execution.request",
+      "input_ref": "inputs.payment_code",
+      "expected_outcome": {
+        "decision": "require_approval",
+        "reason_contains": [
+          "approval"
+        ]
+      }
+    }
+  ],
+  "success_conditions": [
+    "Finance review is allowed for local summarization.",
+    "Finance execution requires approval."
+  ]
+}

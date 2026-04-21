@@ -12,7 +12,8 @@
     "lab:down": "bash ./scripts/local/down.sh",
     "seed:registries": "node ./scripts/seed/load-registry-bundles.mjs",
     "seed:domain": "node ./scripts/seed/load-domain-seeds.mjs",
-    "seed:all": "node ./scripts/seed/load-all.mjs"
+    "seed:all": "node ./scripts/seed/load-all.mjs",
+    "lab:reset": "bash ./scripts/local/reset-lab.sh"
   },
   "dependencies": {
     "pg": "^8.12.0"

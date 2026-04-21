@@ -1,0 +1,18 @@
+[
+  {
+    "action_item_code": "MAI-6001",
+    "meeting_code": "MTG-6001",
+    "owner_actor_id": "inventory-manager",
+    "due_at": "2026-04-22T17:00:00Z",
+    "status": "open",
+    "description": "Rebalance Widget Alpha allocation between Acme and Skyridge orders."
+  },
+  {
+    "action_item_code": "MAI-6002",
+    "meeting_code": "MTG-6001",
+    "owner_actor_id": "maintenance-lead",
+    "due_at": "2026-04-21T20:00:00Z",
+    "status": "open",
+    "description": "Clear label applicator misalignment on PACKLINE-01."
+  }
+]

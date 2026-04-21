@@ -1,0 +1,22 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/scenario-pack.schema.json",
+  "pack_id": "logistics-pack",
+  "version": "v1-0-0",
+  "title": "Logistics pack",
+  "scenario_manifests": [
+    "lab_data/scenarios/packs/logistics/shipping-delay-escalation.scenario.json"
+  ],
+  "supporting_data": [
+    "lab_data/seeds/json/shipments.json",
+    "lab_data/seeds/json/shipment_lines.json",
+    "lab_data/seeds/json/call_logs.json"
+  ],
+  "corpora_refs": [
+    "lab_data/corpus/calls/customer-delay-call-001.txt",
+    "lab_data/corpus/docs/sop-shipping-delay-escalation.md"
+  ],
+  "expected_assertions": [
+    "Internal logistics escalation can be allowed.",
+    "Shipment communication context is available as fixture."
+  ]
+}

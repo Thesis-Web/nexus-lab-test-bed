@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/scenario-pack.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "pack_id",
+    "version",
+    "title",
+    "scenario_manifests",
+    "supporting_data",
+    "corpora_refs",
+    "expected_assertions"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "https://nexus-lab-test-bed.local/schemas/scenario-pack.schema.json"
+    },
+    "pack_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[-_][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^v\\d+-\\d+-\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scenario_manifests": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "supporting_data": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "corpora_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "expected_assertions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "wo_code": "WO-3001",
+    "product_sku": "ASM-ROBOTIC-ARM",
+    "location_code": "PLANT-CS",
+    "planned_start": "2026-04-21T07:00:00Z",
+    "planned_end": "2026-04-22T19:00:00Z",
+    "quantity_planned": 4,
+    "quantity_completed": 1,
+    "status": "in_progress"
+  }
+]

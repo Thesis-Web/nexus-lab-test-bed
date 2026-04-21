@@ -1,0 +1,11 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/contracts/domain/mutation-manifest.schema.json",
+  "mutation_id": "daily-operations-close",
+  "version": "v1-0-0",
+  "cadence": "daily",
+  "effective_at": "2026-04-21T23:30:00Z",
+  "target_domain": "inventory_movements",
+  "source_path": "lab_data/mutations/daily/daily-operations-close.data.json",
+  "replay_mode": "append",
+  "description": "Simulated daily operational close entries for receipts, shipments, and work order progress."
+}

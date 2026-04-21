@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/meeting.schema.json",
+  "title": "meeting",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "meeting_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1
+      },
+      "scheduled_start": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/datetime"
+      },
+      "scheduled_end": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/datetime"
+      },
+      "location": {
+        "type": "string",
+        "minLength": 1
+      },
+      "organizer_actor_id": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/slug"
+      },
+      "meeting_type": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "minLength": 1
+      },
+      "notes": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "meeting_code",
+      "title",
+      "scheduled_start",
+      "scheduled_end",
+      "location",
+      "organizer_actor_id",
+      "meeting_type",
+      "status",
+      "notes"
+    ]
+  }
+}

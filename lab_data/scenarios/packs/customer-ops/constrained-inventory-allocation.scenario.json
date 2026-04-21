@@ -1,0 +1,75 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/scenario-manifest.schema.json",
+  "scenario_id": "constrained-inventory-allocation",
+  "version": "v1-0-0",
+  "title": "Constrained inventory allocation",
+  "objective": "Validate customer ops decisioning under constrained finished-goods inventory.",
+  "actors_in_scope": [
+    "inventory-manager",
+    "ops-manager",
+    "service-vanguard",
+    "service-nexus",
+    "worker-scenario-runner-v1"
+  ],
+  "models_in_scope": [
+    "ollama-llama3_2-laptop"
+  ],
+  "policies_in_scope": [
+    "allow-fake-company-local-inference",
+    "allow-ops-logistics-execution",
+    "finance-execution-requires-approval",
+    "allow-bounded-worker-registry-and-log-writes"
+  ],
+  "inputs": {
+    "sales_order_a": "SO-2001",
+    "sales_order_b": "SO-2002",
+    "data_class": "confidential"
+  },
+  "steps": [
+    {
+      "step_id": "load-allocation-context",
+      "kind": "registry_load",
+      "actor_id": "worker-scenario-runner-v1",
+      "requested_capability": "scenario.run",
+      "input_ref": "inputs.sales_order_a",
+      "expected_outcome": {
+        "decision": "allow",
+        "reason_contains": [
+          "allow"
+        ]
+      }
+    },
+    {
+      "step_id": "inventory-summary",
+      "kind": "inference_request",
+      "actor_id": "inventory-manager",
+      "requested_capability": "inference.request",
+      "model_id": "ollama-llama3_2-laptop",
+      "input_ref": "inputs.sales_order_b",
+      "expected_outcome": {
+        "decision": "allow",
+        "reason_contains": [
+          "allow",
+          "local"
+        ]
+      }
+    },
+    {
+      "step_id": "ops-allocation-action",
+      "kind": "execution_request",
+      "actor_id": "ops-manager",
+      "requested_capability": "execution.request",
+      "input_ref": "inputs.sales_order_b",
+      "expected_outcome": {
+        "decision": "allow",
+        "reason_contains": [
+          "allow"
+        ]
+      }
+    }
+  ],
+  "success_conditions": [
+    "Inventory analysis is allowed locally.",
+    "Ops allocation action is bounded and logged."
+  ]
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "ticket_code": "MNT-5001",
+    "asset_code": "PACKLINE-01",
+    "opened_at": "2026-04-21T11:25:00Z",
+    "priority": "high",
+    "status": "open",
+    "maintenance_type": "corrective",
+    "summary": "Label applicator misalignment causing outbound delay."
+  },
+  {
+    "ticket_code": "MNT-5002",
+    "asset_code": "CNC-01",
+    "opened_at": "2026-04-20T06:30:00Z",
+    "priority": "medium",
+    "status": "scheduled",
+    "maintenance_type": "preventive",
+    "summary": "Monthly lubrication and spindle check."
+  }
+]

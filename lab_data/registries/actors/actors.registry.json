@@ -1,8 +1,8 @@
 {
   "schema_id": "https://nexus-lab-test-bed.local/schemas/actor-registry.schema.json",
   "registry_id": "actors-default",
-  "version": "v1-0-1",
-  "generated_at": "2026-04-20T00:00:00Z",
+  "version": "v1-1-0",
+  "generated_at": "2026-04-21T00:00:00Z",
   "actors": [
     {
       "actor_id": "human-lab-owner",
@@ -126,6 +126,300 @@
       ],
       "data_access": {
         "max_data_class": "restricted",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "executive-assistant",
+      "actor_type": "human",
+      "display_name": "Executive Assistant",
+      "auth_source": {
+        "kind": "local_static",
+        "subject": "executive_assistant"
+      },
+      "capability_ceiling": ["inference.request", "scenario.run"],
+      "data_access": {
+        "max_data_class": "internal",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "ops-manager",
+      "actor_type": "human",
+      "display_name": "Operations Manager",
+      "auth_source": {
+        "kind": "local_static",
+        "subject": "ops_manager"
+      },
+      "capability_ceiling": [
+        "inference.request",
+        "execution.request",
+        "scenario.run"
+      ],
+      "data_access": {
+        "max_data_class": "restricted",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "inventory-manager",
+      "actor_type": "human",
+      "display_name": "Inventory Manager",
+      "auth_source": {
+        "kind": "local_static",
+        "subject": "inventory_manager"
+      },
+      "capability_ceiling": [
+        "inference.request",
+        "execution.request",
+        "scenario.run"
+      ],
+      "data_access": {
+        "max_data_class": "confidential",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "purchasing-agent",
+      "actor_type": "human",
+      "display_name": "Purchasing Agent",
+      "auth_source": {
+        "kind": "local_static",
+        "subject": "purchasing_agent"
+      },
+      "capability_ceiling": ["inference.request", "scenario.run"],
+      "data_access": {
+        "max_data_class": "confidential",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "receiving-clerk",
+      "actor_type": "human",
+      "display_name": "Receiving Clerk",
+      "auth_source": {
+        "kind": "local_static",
+        "subject": "receiving_clerk"
+      },
+      "capability_ceiling": ["scenario.run"],
+      "data_access": {
+        "max_data_class": "internal",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "production-coordinator",
+      "actor_type": "human",
+      "display_name": "Production Coordinator",
+      "auth_source": {
+        "kind": "local_static",
+        "subject": "production_coordinator"
+      },
+      "capability_ceiling": [
+        "inference.request",
+        "execution.request",
+        "scenario.run"
+      ],
+      "data_access": {
+        "max_data_class": "restricted",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "maintenance-lead",
+      "actor_type": "human",
+      "display_name": "Maintenance Lead",
+      "auth_source": {
+        "kind": "local_static",
+        "subject": "maintenance_lead"
+      },
+      "capability_ceiling": [
+        "inference.request",
+        "execution.request",
+        "scenario.run"
+      ],
+      "data_access": {
+        "max_data_class": "restricted",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "shipping-coordinator",
+      "actor_type": "human",
+      "display_name": "Shipping Coordinator",
+      "auth_source": {
+        "kind": "local_static",
+        "subject": "shipping_coordinator"
+      },
+      "capability_ceiling": [
+        "inference.request",
+        "execution.request",
+        "scenario.run"
+      ],
+      "data_access": {
+        "max_data_class": "confidential",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "sales-lead",
+      "actor_type": "human",
+      "display_name": "Sales Lead",
+      "auth_source": {
+        "kind": "local_static",
+        "subject": "sales_lead"
+      },
+      "capability_ceiling": ["inference.request", "scenario.run"],
+      "data_access": {
+        "max_data_class": "confidential",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "account-rep",
+      "actor_type": "human",
+      "display_name": "Account Representative",
+      "auth_source": {
+        "kind": "local_static",
+        "subject": "account_rep"
+      },
+      "capability_ceiling": ["inference.request", "scenario.run"],
+      "data_access": {
+        "max_data_class": "confidential",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "finance-lead",
+      "actor_type": "human",
+      "display_name": "Finance Lead",
+      "auth_source": {
+        "kind": "local_static",
+        "subject": "finance_lead"
+      },
+      "capability_ceiling": [
+        "inference.request",
+        "execution.request",
+        "scenario.run"
+      ],
+      "data_access": {
+        "max_data_class": "restricted",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "staff-accountant",
+      "actor_type": "human",
+      "display_name": "Staff Accountant",
+      "auth_source": {
+        "kind": "local_static",
+        "subject": "staff_accountant"
+      },
+      "capability_ceiling": ["inference.request", "scenario.run"],
+      "data_access": {
+        "max_data_class": "restricted",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "engineer",
+      "actor_type": "human",
+      "display_name": "Engineer",
+      "auth_source": {
+        "kind": "local_static",
+        "subject": "engineer"
+      },
+      "capability_ceiling": ["inference.request", "scenario.run"],
+      "data_access": {
+        "max_data_class": "restricted",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "support-lead",
+      "actor_type": "human",
+      "display_name": "Support Lead",
+      "auth_source": {
+        "kind": "local_static",
+        "subject": "support_lead"
+      },
+      "capability_ceiling": ["inference.request", "scenario.run"],
+      "data_access": {
+        "max_data_class": "confidential",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "analyst",
+      "actor_type": "human",
+      "display_name": "Analyst",
+      "auth_source": {
+        "kind": "local_static",
+        "subject": "analyst"
+      },
+      "capability_ceiling": ["inference.request", "scenario.run"],
+      "data_access": {
+        "max_data_class": "confidential",
         "allow_filesystem_read": true,
         "allow_filesystem_write": false,
         "allow_network_egress": false

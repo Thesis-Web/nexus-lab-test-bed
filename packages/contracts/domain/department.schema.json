@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/department.schema.json",
+  "title": "department",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "department_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "cost_center_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "manager_actor_id": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/slug"
+      },
+      "is_active": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "department_code",
+      "name",
+      "cost_center_code",
+      "manager_actor_id",
+      "is_active"
+    ]
+  }
+}

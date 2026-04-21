@@ -1,0 +1,13 @@
+[
+  {
+    "support_ticket_code": "SUP-4003",
+    "customer_account_code": "CUST-NORTHSTAR",
+    "opened_at": "2026-04-21T13:00:00Z",
+    "channel": "email",
+    "priority": "medium",
+    "status": "open",
+    "subject": "Lead time confirmation for Beta units",
+    "summary": "Customer asked whether next replenishment lot is still on track.",
+    "owner_actor_id": "support-lead"
+  }
+]

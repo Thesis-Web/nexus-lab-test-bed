@@ -3,7 +3,7 @@
     "sku": "WIDGET-ALPHA",
     "name": "Widget Alpha",
     "description": "Baseline mechanical widget used in multiple assemblies.",
-    "product_family": "widgets",
+    "product_family": "finished_goods",
     "unit_of_measure": "EA",
     "default_location_code": "PLANT-CS"
   },
@@ -11,7 +11,7 @@
     "sku": "WIDGET-BETA",
     "name": "Widget Beta",
     "description": "Enhanced widget variant with improved tolerance.",
-    "product_family": "widgets",
+    "product_family": "finished_goods",
     "unit_of_measure": "EA",
     "default_location_code": "PLANT-CS"
   },
@@ -20,6 +20,30 @@
     "name": "Robotic Arm Assembly",
     "description": "Configured robotic arm assembly for industrial automation cells.",
     "product_family": "assemblies",
+    "unit_of_measure": "EA",
+    "default_location_code": "WH-HOUSTON"
+  },
+  {
+    "sku": "RM-STEEL-BAR",
+    "name": "Precision Steel Bar",
+    "description": "Cold-finished steel bar stock for machined components.",
+    "product_family": "raw_material",
+    "unit_of_measure": "FT",
+    "default_location_code": "PLANT-CS"
+  },
+  {
+    "sku": "RM-SERVO-DRV",
+    "name": "Servo Drive Module",
+    "description": "Vendor-supplied servo drive module for assembly.",
+    "product_family": "raw_material",
+    "unit_of_measure": "EA",
+    "default_location_code": "PLANT-CS"
+  },
+  {
+    "sku": "PKG-CRATE-LG",
+    "name": "Large Shipping Crate",
+    "description": "Reusable crate for robotic arm outbound shipments.",
+    "product_family": "packaging",
     "unit_of_measure": "EA",
     "default_location_code": "WH-HOUSTON"
   }

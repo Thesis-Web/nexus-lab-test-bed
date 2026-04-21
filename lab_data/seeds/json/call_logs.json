@@ -1,0 +1,12 @@
+[
+  {
+    "call_code": "CALL-4201",
+    "customer_account_code": "CUST-ACME",
+    "occurred_at": "2026-04-21T12:35:00Z",
+    "direction": "outbound",
+    "caller_name": "Dana Rivera",
+    "summary": "Explained partial shipment status and pending carrier ETA update.",
+    "related_support_ticket_code": "SUP-4001",
+    "owner_actor_id": "shipping-coordinator"
+  }
+]

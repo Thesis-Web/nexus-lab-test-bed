@@ -1,0 +1,24 @@
+[
+  {
+    "support_ticket_code": "SUP-4001",
+    "customer_account_code": "CUST-ACME",
+    "opened_at": "2026-04-21T10:05:00Z",
+    "channel": "email",
+    "priority": "high",
+    "status": "open",
+    "subject": "Shipment ETA request for SO-2001",
+    "summary": "Customer requested confirmed ETA after receiving only partial shipment notice.",
+    "owner_actor_id": "support-lead"
+  },
+  {
+    "support_ticket_code": "SUP-4002",
+    "customer_account_code": "CUST-SKYRIDGE",
+    "opened_at": "2026-04-21T12:20:00Z",
+    "channel": "phone",
+    "priority": "medium",
+    "status": "open",
+    "subject": "Order status for robotic arm project",
+    "summary": "Customer requested confirmation of assembly completion timing.",
+    "owner_actor_id": "support-lead"
+  }
+]

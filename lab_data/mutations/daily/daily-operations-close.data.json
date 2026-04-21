@@ -1,0 +1,14 @@
+[
+  {
+    "movement_code": "INVMOVE-004",
+    "movement_type": "completion",
+    "product_sku": "ASM-ROBOTIC-ARM",
+    "from_location_code": "PLANT-CS",
+    "to_location_code": "WH-HOUSTON",
+    "quantity": 1,
+    "unit_of_measure": "EA",
+    "effective_at": "2026-04-21T23:30:00Z",
+    "reference_code": "WO-3001",
+    "notes": "Completed unit moved to finished goods staging."
+  }
+]

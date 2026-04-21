@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/work-order-operation.schema.json",
+  "title": "work-order-operation",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "wo_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "operation_seq": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "work_center": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "minLength": 1
+      },
+      "planned_hours": {
+        "type": "number",
+        "minimum": 0
+      },
+      "actual_hours": {
+        "type": "number",
+        "minimum": 0
+      }
+    },
+    "required": [
+      "wo_code",
+      "operation_seq",
+      "work_center",
+      "description",
+      "status",
+      "planned_hours",
+      "actual_hours"
+    ]
+  }
+}

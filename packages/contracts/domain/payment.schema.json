@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/payment.schema.json",
+  "title": "payment",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "payment_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "invoice_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "received_at": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/datetime"
+      },
+      "amount": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/money"
+      },
+      "method": {
+        "type": "string",
+        "minLength": 1
+      },
+      "reference_number": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "payment_code",
+      "invoice_code",
+      "received_at",
+      "amount",
+      "method",
+      "reference_number"
+    ]
+  }
+}

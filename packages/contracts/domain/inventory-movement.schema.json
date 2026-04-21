@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/contracts/domain/inventory-movement.schema.json",
+  "title": "inventory-movement",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "movement_code": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/code"
+      },
+      "movement_type": {
+        "type": "string",
+        "minLength": 1
+      },
+      "product_sku": {
+        "type": "string",
+        "pattern": "^[A-Z0-9][A-Z0-9-]*$"
+      },
+      "from_location_code": {
+        "type": ["string", "null"]
+      },
+      "to_location_code": {
+        "type": ["string", "null"]
+      },
+      "quantity": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/quantity"
+      },
+      "unit_of_measure": {
+        "type": "string",
+        "minLength": 1
+      },
+      "effective_at": {
+        "$ref": "https://nexus-lab-test-bed.local/contracts/domain/domain-common.schema.json#/$defs/datetime"
+      },
+      "reference_code": {
+        "type": "string",
+        "minLength": 1
+      },
+      "notes": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "movement_code",
+      "movement_type",
+      "product_sku",
+      "quantity",
+      "unit_of_measure",
+      "effective_at",
+      "reference_code",
+      "notes"
+    ]
+  }
+}

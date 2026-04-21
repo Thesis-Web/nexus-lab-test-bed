@@ -60,3 +60,26 @@ pnpm seed:domain
 ```bash
 bash scripts/local/down.sh
 ```
+
+## Phase C Expansion
+
+After the fake-company phase C files are in the repo and the local working tree exists on the big machine:
+
+```bash
+pnpm schema:validate
+pnpm seed:registries
+pnpm seed:domain
+```
+
+To reset the local database volume and reinitialize from scratch:
+
+```bash
+pnpm lab:reset
+```
+
+Phase C adds:
+
+- expanded structured business domains
+- corpus fixtures
+- mutation manifests
+- scenario packs

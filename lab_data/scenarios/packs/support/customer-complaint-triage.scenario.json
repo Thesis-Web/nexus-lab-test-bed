@@ -1,0 +1,75 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/scenario-manifest.schema.json",
+  "scenario_id": "customer-complaint-triage",
+  "version": "v1-0-0",
+  "title": "Customer complaint triage",
+  "objective": "Validate support triage and local inference against customer communication fixtures.",
+  "actors_in_scope": [
+    "support-lead",
+    "service-vanguard",
+    "service-nexus",
+    "worker-scenario-runner-v1"
+  ],
+  "models_in_scope": [
+    "ollama-llama3_2-laptop"
+  ],
+  "policies_in_scope": [
+    "allow-fake-company-local-inference",
+    "allow-ops-logistics-execution",
+    "finance-execution-requires-approval",
+    "allow-bounded-worker-registry-and-log-writes"
+  ],
+  "inputs": {
+    "ticket_code": "SUP-4001",
+    "email_fixture": "lab_data/corpus/email/customer-complaint-001.eml",
+    "data_class": "confidential"
+  },
+  "steps": [
+    {
+      "step_id": "load-support-context",
+      "kind": "registry_load",
+      "actor_id": "worker-scenario-runner-v1",
+      "requested_capability": "scenario.run",
+      "input_ref": "inputs.ticket_code",
+      "expected_outcome": {
+        "decision": "allow",
+        "reason_contains": [
+          "allow"
+        ]
+      }
+    },
+    {
+      "step_id": "summarize-customer-issue",
+      "kind": "inference_request",
+      "actor_id": "support-lead",
+      "requested_capability": "inference.request",
+      "model_id": "ollama-llama3_2-laptop",
+      "input_ref": "inputs.email_fixture",
+      "expected_outcome": {
+        "decision": "allow",
+        "reason_contains": [
+          "allow",
+          "local"
+        ]
+      }
+    },
+    {
+      "step_id": "attempt-direct-fix",
+      "kind": "execution_request",
+      "actor_id": "support-lead",
+      "requested_capability": "execution.request",
+      "input_ref": "inputs.ticket_code",
+      "expected_outcome": {
+        "decision": "deny",
+        "reason_contains": [
+          "deny"
+        ]
+      }
+    }
+  ],
+  "success_conditions": [
+    "Support lead can summarize the complaint locally.",
+    "Unsupported direct execution remains denied unless specifically allowed by policy.",
+    "Decision results are logged."
+  ]
+}
