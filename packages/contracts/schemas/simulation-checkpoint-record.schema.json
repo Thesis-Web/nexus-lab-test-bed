@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/simulation-checkpoint-record.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "checkpoint_id",
+    "timeline_id",
+    "created_at",
+    "capture_mode",
+    "stage_id",
+    "simulation_timestamp",
+    "parent_checkpoint_id",
+    "world_state_hash"
+  ],
+  "properties": {
+    "checkpoint_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timeline_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "capture_mode": {
+      "type": "string",
+      "enum": [
+        "snapshot",
+        "reset",
+        "rewind_to_checkpoint",
+        "fork_from_checkpoint",
+        "system_seed"
+      ]
+    },
+    "stage_id": {
+      "type": "string",
+      "enum": [
+        "small_local",
+        "multi_site_small",
+        "regional_midmarket",
+        "multi_region_enterprise"
+      ]
+    },
+    "simulation_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "parent_checkpoint_id": {
+      "type": ["string", "null"]
+    },
+    "world_state_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "notes": {
+      "type": ["string", "null"]
+    }
+  }
+}

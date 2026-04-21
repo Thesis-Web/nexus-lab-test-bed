@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/simulation-state-command.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["command", "timeline_id", "issued_at"],
+  "properties": {
+    "command": {
+      "type": "string",
+      "enum": [
+        "pause",
+        "resume",
+        "snapshot",
+        "reset",
+        "rewind_to_checkpoint",
+        "fork_from_checkpoint",
+        "set_stage",
+        "set_clock"
+      ]
+    },
+    "timeline_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "checkpoint_id": {
+      "type": ["string", "null"]
+    },
+    "target_stage_id": {
+      "type": ["string", "null"],
+      "enum": [
+        null,
+        "small_local",
+        "multi_site_small",
+        "regional_midmarket",
+        "multi_region_enterprise"
+      ]
+    },
+    "target_simulation_timestamp": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": ["string", "null"]
+    }
+  }
+}

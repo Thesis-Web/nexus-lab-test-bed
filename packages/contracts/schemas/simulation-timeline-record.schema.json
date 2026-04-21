@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/simulation-timeline-record.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "timeline_id",
+    "source_timeline_id",
+    "source_checkpoint_id",
+    "created_at",
+    "branch_reason",
+    "status",
+    "head_checkpoint_id"
+  ],
+  "properties": {
+    "timeline_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_timeline_id": {
+      "type": ["string", "null"]
+    },
+    "source_checkpoint_id": {
+      "type": ["string", "null"]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "branch_reason": {
+      "type": ["string", "null"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "paused", "archived"]
+    },
+    "head_checkpoint_id": {
+      "type": ["string", "null"]
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/simulation-state-cursor.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "timeline_id",
+    "stage_id",
+    "simulation_timestamp",
+    "last_tick_id",
+    "total_ticks_applied",
+    "runner_mode",
+    "checkpoint_id"
+  ],
+  "properties": {
+    "timeline_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage_id": {
+      "type": "string",
+      "enum": [
+        "small_local",
+        "multi_site_small",
+        "regional_midmarket",
+        "multi_region_enterprise"
+      ]
+    },
+    "simulation_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_tick_id": {
+      "type": ["string", "null"]
+    },
+    "total_ticks_applied": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "runner_mode": {
+      "type": "string",
+      "enum": [
+        "tick_once",
+        "tick_until",
+        "run_continuous",
+        "pause",
+        "snapshot",
+        "reset",
+        "fork_timeline"
+      ]
+    },
+    "checkpoint_id": {
+      "type": ["string", "null"]
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/worker-contract.schema.json",
+  "worker_id": "worker-simulation-state-manager-v1",
+  "title": "Simulation State Manager Worker v1",
+  "version": "v1-0-0",
+  "allowed_capabilities": [
+    "simulation.state.pause",
+    "simulation.state.resume",
+    "simulation.state.snapshot",
+    "simulation.state.reset",
+    "simulation.state.rewind",
+    "simulation.state.fork"
+  ],
+  "side_effects": ["file_read", "db_write"],
+  "determinism": [
+    "Loads only declared simulation control commands and future state records.",
+    "Must act against declared timeline and checkpoint identifiers only.",
+    "Must not use uncontrolled randomness.",
+    "Must not write to AI-control roots."
+  ],
+  "runtime": {
+    "language": "typescript",
+    "entrypoint": "apps/workers/simulation-state-manager/src/main.ts",
+    "mode": "bounded"
+  },
+  "input_contract": {
+    "type": "object",
+    "required_fields": ["command", "timeline_id", "issued_at"],
+    "notes": [
+      "Command must conform to simulation-state-command.schema.json.",
+      "Future implementations may require checkpoint_id, target_stage_id, or target_simulation_timestamp depending on command."
+    ]
+  },
+  "output_contract": {
+    "type": "object",
+    "required_fields": [
+      "command",
+      "result_status",
+      "timeline_id",
+      "checkpoint_id"
+    ],
+    "notes": [
+      "Phase I defines the control contract only.",
+      "Future runtime phases may persist checkpoint, timeline, and cursor records."
+    ]
+  }
+}
