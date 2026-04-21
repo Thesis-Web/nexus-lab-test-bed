@@ -1,0 +1,40 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/worker-contract.schema.json",
+  "worker_id": "worker-scenario-runner-v1",
+  "title": "Scenario Runner Worker v1",
+  "version": "v1-0-1",
+  "allowed_capabilities": [
+    "scenario.run",
+    "registry.read",
+    "db.write",
+    "decision.log"
+  ],
+  "side_effects": ["file_read", "db_write"],
+  "determinism": [
+    "Loads only declared registries and scenario manifests.",
+    "Evaluates only declared steps in manifest order.",
+    "Records run, run_event, and decision_log rows.",
+    "Does not execute arbitrary shell commands."
+  ],
+  "runtime": {
+    "language": "typescript",
+    "entrypoint": "apps/workers/scenario-runner/src/main.ts",
+    "mode": "registry-driven"
+  },
+  "input_contract": {
+    "type": "object",
+    "required_fields": [
+      "scenario_id",
+      "scenario_version",
+      "requested_by_actor_id"
+    ],
+    "notes": ["Scenario input must resolve to a canonical filesystem manifest."]
+  },
+  "output_contract": {
+    "type": "object",
+    "required_fields": ["run_id", "status", "decision_summary"],
+    "notes": [
+      "Each step produces ordered run_event rows and decision_log rows."
+    ]
+  }
+}

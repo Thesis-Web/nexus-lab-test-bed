@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/common.schema.json",
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[-_][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^v\\d+-\\d+-\\d+$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "riskLevel": {
+      "type": "string",
+      "enum": ["low", "moderate", "high", "critical"]
+    },
+    "dataClass": {
+      "type": "string",
+      "enum": ["public", "internal", "confidential", "restricted"]
+    },
+    "executionMode": {
+      "type": "string",
+      "enum": [
+        "read_only",
+        "bounded_write",
+        "proposal_only",
+        "approval_required",
+        "autonomous_denied"
+      ]
+    },
+    "capability": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)*$"
+    },
+    "stringArray": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  }
+}

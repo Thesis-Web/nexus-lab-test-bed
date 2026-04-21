@@ -1,0 +1,32 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/seed-manifest.schema.json",
+  "manifest_id": "domain-seed-base",
+  "version": "v1-0-1",
+  "generated_at": "2026-04-20T00:00:00Z",
+  "seeds": [
+    {
+      "seed_id": "seed-locations",
+      "table_name": "locations",
+      "source_path": "lab_data/seeds/json/locations.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-products",
+      "table_name": "products",
+      "source_path": "lab_data/seeds/json/products.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-customers",
+      "table_name": "customers",
+      "source_path": "lab_data/seeds/json/customers.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-scenario-storylines",
+      "table_name": "research_briefs",
+      "source_path": "lab_data/seeds/json/scenario_storylines.json",
+      "on_conflict": "replace"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "code": "SCN-INTAKE-001",
+    "title": "New customer intake with constrained inventory",
+    "summary": "Sales receives a large order from a new customer while on-hand inventory is constrained across locations.",
+    "body_markdown": "## Scenario: New customer intake with constrained inventory\\n\\n- A new customer account is created for **Skyridge Robotics**.\\n- An initial sales order is placed for WIDGET-ALPHA and WIDGET-BETA.\\n- Inventory at PLANT-CS is low, forcing a partial shipment and backorder.\\n- Evidence events should capture reasoning steps, inventory checks, and policy decisions.\\n",
+    "author_actor_code": "human-product-analyst",
+    "created_for_actor_code": "service-nexus",
+    "related_product_skus": ["WIDGET-ALPHA", "WIDGET-BETA"],
+    "related_customer_account_codes": ["CUST-SKYRIDGE"],
+    "status": "published"
+  },
+  {
+    "code": "SCN-MEETING-OPS-001",
+    "title": "Weekly operations review with production reschedule",
+    "summary": "Ops reviews backlog, reschedules production, and updates shipment priorities.",
+    "body_markdown": "## Scenario: Weekly operations review\\n\\n- Operations reviews open work and reschedules production.\\n- Shipment priority is updated.\\n- Tasks and action items are created and linked to the meeting.\\n",
+    "author_actor_code": "human-lab-owner",
+    "created_for_actor_code": "service-nexus",
+    "related_product_skus": ["WIDGET-BETA"],
+    "related_customer_account_codes": ["CUST-ACME"],
+    "status": "published"
+  },
+  {
+    "code": "SCN-LAPTOP-OLLAMA-001",
+    "title": "Laptop-hosted Ollama model usage from big machine",
+    "summary": "The big machine routes a research brief request to the laptop-hosted Ollama endpoint over LAN.",
+    "body_markdown": "## Scenario: Laptop-hosted Ollama\\n\\n- A research brief is requested for Northstar Components.\\n- Nexus selects the Ollama endpoint running on the laptop over LAN.\\n- Evidence events log model selection, request, and response.\\n- The laptop acts only as an inference endpoint, not as the control plane.\\n",
+    "author_actor_code": "service-nexus",
+    "created_for_actor_code": "service-vanguard",
+    "related_product_skus": [],
+    "related_customer_account_codes": ["CUST-NORTHSTAR"],
+    "status": "published"
+  }
+]

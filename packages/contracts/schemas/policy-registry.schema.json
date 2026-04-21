@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/policy-registry.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "registry_id",
+    "version",
+    "generated_at",
+    "policies"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "https://nexus-lab-test-bed.local/schemas/policy-registry.schema.json"
+    },
+    "registry_id": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/slug"
+    },
+    "version": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/version"
+    },
+    "generated_at": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/timestamp"
+    },
+    "policies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "policy_id",
+          "description",
+          "match",
+          "effect",
+          "constraints",
+          "priority",
+          "enabled"
+        ],
+        "properties": {
+          "policy_id": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/slug"
+          },
+          "description": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/nonEmptyString"
+          },
+          "match": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "actor_ids",
+              "capability_patterns",
+              "data_classes",
+              "model_ids"
+            ],
+            "properties": {
+              "actor_ids": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "capability_patterns": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "data_classes": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/dataClass"
+                }
+              },
+              "model_ids": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "effect": {
+            "type": "string",
+            "enum": ["allow", "deny", "require_approval"]
+          },
+          "constraints": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "max_risk",
+              "execution_mode",
+              "require_local_model",
+              "require_human_approval"
+            ],
+            "properties": {
+              "max_risk": {
+                "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/riskLevel"
+              },
+              "execution_mode": {
+                "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/executionMode"
+              },
+              "require_local_model": {
+                "type": "boolean"
+              },
+              "require_human_approval": {
+                "type": "boolean"
+              }
+            }
+          },
+          "priority": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "code": "PLANT-CS",
+    "name": "Coldspring Plant",
+    "description": "Primary manufacturing plant on the big machine's local network.",
+    "address_line1": "100 Industrial Way",
+    "address_line2": null,
+    "city": "Coldspring",
+    "state": "TX",
+    "postal_code": "77331",
+    "country": "US",
+    "latitude": 30.5816,
+    "longitude": -95.1299,
+    "location_type": "plant",
+    "is_active": true
+  },
+  {
+    "code": "WH-HOUSTON",
+    "name": "Houston Distribution Center",
+    "description": "Regional warehouse serving Gulf Coast customers.",
+    "address_line1": "250 Logistics Park",
+    "address_line2": null,
+    "city": "Houston",
+    "state": "TX",
+    "postal_code": "77001",
+    "country": "US",
+    "latitude": 29.7604,
+    "longitude": -95.3698,
+    "location_type": "warehouse",
+    "is_active": true
+  },
+  {
+    "code": "OFFICE-AUSTIN",
+    "name": "Austin Office",
+    "description": "Engineering and R&D office.",
+    "address_line1": "500 Innovation Loop",
+    "address_line2": "Floor 5",
+    "city": "Austin",
+    "state": "TX",
+    "postal_code": "73301",
+    "country": "US",
+    "latitude": 30.2672,
+    "longitude": -97.7431,
+    "location_type": "office",
+    "is_active": true
+  }
+]

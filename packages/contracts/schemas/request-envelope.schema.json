@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/request-envelope.schema.json",
+  "title": "Request Envelope",
+  "type": "object",
+  "required": ["id", "actor", "intent", "payload", "timestamp", "context"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "actor": {
+      "type": "string"
+    },
+    "intent": {
+      "type": "string",
+      "enum": [
+        "retrieve",
+        "synthesize",
+        "draft",
+        "code",
+        "research",
+        "escalate",
+        "approve",
+        "reject",
+        "inference",
+        "execute"
+      ]
+    },
+    "payload": {
+      "type": "object"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "context": {
+      "type": "object",
+      "required": ["scenarioId"],
+      "properties": {
+        "scenarioId": {
+          "type": "string"
+        },
+        "parentRequestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "evidenceLevel": {
+          "type": "string",
+          "enum": ["full", "summary", "none"]
+        }
+      }
+    },
+    "signature": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

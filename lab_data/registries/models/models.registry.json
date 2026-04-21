@@ -1,0 +1,50 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/model-registry.schema.json",
+  "registry_id": "models-default",
+  "version": "v1-0-1",
+  "generated_at": "2026-04-20T00:00:00Z",
+  "models": [
+    {
+      "model_id": "ollama-llama3_2-laptop",
+      "display_name": "Ollama Llama 3.2 Laptop",
+      "provider": "ollama",
+      "locality": "small-laptop-ollama",
+      "transport": {
+        "protocol": "ollama",
+        "base_url_env": "LAB_OLLAMA_BASE_URL",
+        "model_name": "llama3.2:latest",
+        "timeout_ms": 60000
+      },
+      "policy_tags": ["local-only", "general-reasoning"],
+      "enabled": true
+    },
+    {
+      "model_id": "ollama-qwen2_5-coder-laptop",
+      "display_name": "Ollama Qwen 2.5 Coder Laptop",
+      "provider": "ollama",
+      "locality": "small-laptop-ollama",
+      "transport": {
+        "protocol": "ollama",
+        "base_url_env": "LAB_OLLAMA_BASE_URL",
+        "model_name": "qwen2.5-coder:7b-instruct-q4_K_M",
+        "timeout_ms": 60000
+      },
+      "policy_tags": ["local-only", "code-assist"],
+      "enabled": true
+    },
+    {
+      "model_id": "openai-placeholder",
+      "display_name": "OpenAI Placeholder",
+      "provider": "placeholder_remote",
+      "locality": "placeholder_remote",
+      "transport": {
+        "protocol": "placeholder",
+        "base_url_env": "OPENAI_BASE_URL_PLACEHOLDER",
+        "model_name": "gpt-4o",
+        "timeout_ms": 60000
+      },
+      "policy_tags": ["placeholder-only"],
+      "enabled": false
+    }
+  ]
+}

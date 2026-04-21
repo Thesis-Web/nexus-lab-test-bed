@@ -1,0 +1,95 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/policy-registry.schema.json",
+  "registry_id": "policies-default",
+  "version": "v1-0-1",
+  "generated_at": "2026-04-20T00:00:00Z",
+  "policies": [
+    {
+      "policy_id": "allow-analyst-local-inference",
+      "description": "Allow product analyst local inference on approved local Ollama models.",
+      "match": {
+        "actor_ids": ["human-product-analyst", "human-lab-owner"],
+        "capability_patterns": ["inference.request"],
+        "data_classes": ["public", "internal", "confidential"],
+        "model_ids": ["ollama-llama3_2-laptop", "ollama-qwen2_5-coder-laptop"]
+      },
+      "effect": "allow",
+      "constraints": {
+        "max_risk": "moderate",
+        "execution_mode": "read_only",
+        "require_local_model": true,
+        "require_human_approval": false
+      },
+      "priority": 100,
+      "enabled": true
+    },
+    {
+      "policy_id": "deny-analyst-direct-execution",
+      "description": "Deny direct shell or execution requests from the product analyst.",
+      "match": {
+        "actor_ids": ["human-product-analyst"],
+        "capability_patterns": ["execution.request", "shell.exec", "git.write"],
+        "data_classes": ["public", "internal", "confidential", "restricted"],
+        "model_ids": ["*"]
+      },
+      "effect": "deny",
+      "constraints": {
+        "max_risk": "critical",
+        "execution_mode": "autonomous_denied",
+        "require_local_model": false,
+        "require_human_approval": false
+      },
+      "priority": 200,
+      "enabled": true
+    },
+    {
+      "policy_id": "owner-execution-requires-approval",
+      "description": "Owner execution requests are allowed only through approval-required flow.",
+      "match": {
+        "actor_ids": ["human-lab-owner"],
+        "capability_patterns": ["execution.request", "shell.exec"],
+        "data_classes": ["public", "internal", "confidential", "restricted"],
+        "model_ids": ["*"]
+      },
+      "effect": "require_approval",
+      "constraints": {
+        "max_risk": "high",
+        "execution_mode": "approval_required",
+        "require_local_model": false,
+        "require_human_approval": true
+      },
+      "priority": 150,
+      "enabled": true
+    },
+    {
+      "policy_id": "allow-bounded-worker-registry-and-log-writes",
+      "description": "Allow bounded workers to read registries and write scenario audit records.",
+      "match": {
+        "actor_ids": [
+          "worker-file-intake-v1",
+          "worker-scenario-runner-v1",
+          "service-nexus"
+        ],
+        "capability_patterns": [
+          "file.intake",
+          "artifact.index",
+          "scenario.run",
+          "db.write",
+          "decision.log",
+          "registry.read"
+        ],
+        "data_classes": ["public", "internal", "confidential", "restricted"],
+        "model_ids": ["*"]
+      },
+      "effect": "allow",
+      "constraints": {
+        "max_risk": "moderate",
+        "execution_mode": "bounded_write",
+        "require_local_model": false,
+        "require_human_approval": false
+      },
+      "priority": 120,
+      "enabled": true
+    }
+  ]
+}

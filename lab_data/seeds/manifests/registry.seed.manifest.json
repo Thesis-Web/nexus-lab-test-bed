@@ -1,0 +1,38 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/seed-manifest.schema.json",
+  "manifest_id": "registry-seed-base",
+  "version": "v1-0-1",
+  "generated_at": "2026-04-20T00:00:00Z",
+  "registries": {
+    "actors": "lab_data/registries/actors/actors.registry.json",
+    "models": "lab_data/registries/models/models.registry.json",
+    "policies": "lab_data/registries/policies/policies.registry.json",
+    "scenario": "lab_data/scenarios/manifests/dell-like-governance-smoke.scenario.json"
+  },
+  "seeds": [
+    {
+      "seed_id": "seed-actors-default",
+      "table_name": "registry_bundle",
+      "source_path": "lab_data/registries/actors/actors.registry.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-models-default",
+      "table_name": "registry_bundle",
+      "source_path": "lab_data/registries/models/models.registry.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-policies-default",
+      "table_name": "registry_bundle",
+      "source_path": "lab_data/registries/policies/policies.registry.json",
+      "on_conflict": "replace"
+    },
+    {
+      "seed_id": "seed-scenario-default",
+      "table_name": "registry_bundle",
+      "source_path": "lab_data/scenarios/manifests/dell-like-governance-smoke.scenario.json",
+      "on_conflict": "replace"
+    }
+  ]
+}

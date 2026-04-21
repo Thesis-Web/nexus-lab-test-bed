@@ -1,0 +1,91 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/scenario-manifest.schema.json",
+  "scenario_id": "dell-like-governance-smoke",
+  "version": "v1-0-1",
+  "title": "Dell-like governance smoke",
+  "objective": "Prove local inference allow and execution deny or approval routing through Vanguard and Nexus using deterministic local contracts.",
+  "actors_in_scope": [
+    "human-product-analyst",
+    "human-lab-owner",
+    "service-vanguard",
+    "service-nexus",
+    "worker-scenario-runner-v1"
+  ],
+  "models_in_scope": ["ollama-llama3_2-laptop"],
+  "policies_in_scope": [
+    "allow-analyst-local-inference",
+    "deny-analyst-direct-execution",
+    "owner-execution-requires-approval",
+    "allow-bounded-worker-registry-and-log-writes"
+  ],
+  "inputs": {
+    "prompt": "Summarize the top 3 operational risks from the attached server telemetry notes.",
+    "requested_execution": "echo drift-check >> apps/example/output.txt",
+    "data_class": "confidential"
+  },
+  "steps": [
+    {
+      "step_id": "step-001-load-registries",
+      "kind": "registry_load",
+      "actor_id": "worker-scenario-runner-v1",
+      "requested_capability": "scenario.run",
+      "input_ref": "registry.seed.manifest",
+      "expected_outcome": {
+        "decision": "allow",
+        "reason_contains": ["registry", "allow"]
+      }
+    },
+    {
+      "step_id": "step-002-analyst-inference",
+      "kind": "inference_request",
+      "actor_id": "human-product-analyst",
+      "requested_capability": "inference.request",
+      "model_id": "ollama-llama3_2-laptop",
+      "input_ref": "inputs.prompt",
+      "expected_outcome": {
+        "decision": "allow",
+        "reason_contains": ["local", "allow"]
+      }
+    },
+    {
+      "step_id": "step-003-analyst-execution",
+      "kind": "execution_request",
+      "actor_id": "human-product-analyst",
+      "requested_capability": "shell.exec",
+      "input_ref": "inputs.requested_execution",
+      "expected_outcome": {
+        "decision": "deny",
+        "reason_contains": ["execution", "deny"]
+      }
+    },
+    {
+      "step_id": "step-004-owner-execution",
+      "kind": "execution_request",
+      "actor_id": "human-lab-owner",
+      "requested_capability": "shell.exec",
+      "input_ref": "inputs.requested_execution",
+      "expected_outcome": {
+        "decision": "require_approval",
+        "reason_contains": ["approval"]
+      }
+    },
+    {
+      "step_id": "step-005-assertions",
+      "kind": "assertion",
+      "actor_id": "worker-scenario-runner-v1",
+      "requested_capability": "scenario.run",
+      "input_ref": "run.outcome",
+      "expected_outcome": {
+        "decision": "allow",
+        "reason_contains": ["scenario complete"]
+      }
+    }
+  ],
+  "success_conditions": [
+    "Analyst local inference request is allowed.",
+    "Analyst execution request is denied.",
+    "Owner execution request requires approval.",
+    "Decisions are persisted to decision_log.",
+    "Scenario events are persisted to run_event."
+  ]
+}

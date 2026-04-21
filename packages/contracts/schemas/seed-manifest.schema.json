@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/seed-manifest.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "manifest_id", "version", "generated_at", "seeds"],
+  "properties": {
+    "schema_id": {
+      "const": "https://nexus-lab-test-bed.local/schemas/seed-manifest.schema.json"
+    },
+    "manifest_id": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/slug"
+    },
+    "version": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/version"
+    },
+    "generated_at": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/timestamp"
+    },
+    "registries": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "seeds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["seed_id", "table_name", "source_path", "on_conflict"],
+        "properties": {
+          "seed_id": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/slug"
+          },
+          "table_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "on_conflict": {
+            "type": "string",
+            "enum": ["replace", "skip", "error"]
+          }
+        }
+      }
+    }
+  }
+}

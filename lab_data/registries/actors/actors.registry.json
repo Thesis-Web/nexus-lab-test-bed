@@ -1,0 +1,137 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/actor-registry.schema.json",
+  "registry_id": "actors-default",
+  "version": "v1-0-1",
+  "generated_at": "2026-04-20T00:00:00Z",
+  "actors": [
+    {
+      "actor_id": "human-lab-owner",
+      "actor_type": "human",
+      "display_name": "Lab Owner",
+      "auth_source": {
+        "kind": "upstream_rbac",
+        "subject": "owner"
+      },
+      "capability_ceiling": [
+        "registry.read",
+        "scenario.run",
+        "inference.request",
+        "execution.request",
+        "shell.exec",
+        "policy.approve"
+      ],
+      "data_access": {
+        "max_data_class": "restricted",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": true,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "human-product-analyst",
+      "actor_type": "human",
+      "display_name": "Product Analyst",
+      "auth_source": {
+        "kind": "upstream_rbac",
+        "subject": "product_analyst"
+      },
+      "capability_ceiling": ["scenario.run", "inference.request"],
+      "data_access": {
+        "max_data_class": "confidential",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "service-vanguard",
+      "actor_type": "service",
+      "display_name": "Vanguard Service",
+      "auth_source": {
+        "kind": "service_principal",
+        "subject": "vanguard"
+      },
+      "capability_ceiling": [
+        "classification.evaluate",
+        "routing.evaluate",
+        "inference.request"
+      ],
+      "data_access": {
+        "max_data_class": "restricted",
+        "allow_filesystem_read": false,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "service-nexus",
+      "actor_type": "service",
+      "display_name": "Nexus Service",
+      "auth_source": {
+        "kind": "service_principal",
+        "subject": "nexus"
+      },
+      "capability_ceiling": [
+        "governance.evaluate",
+        "execution.request",
+        "decision.log",
+        "db.write"
+      ],
+      "data_access": {
+        "max_data_class": "restricted",
+        "allow_filesystem_read": false,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "worker-file-intake-v1",
+      "actor_type": "worker",
+      "display_name": "File Intake Worker v1",
+      "auth_source": {
+        "kind": "service_principal",
+        "subject": "worker_file_intake"
+      },
+      "capability_ceiling": ["file.intake", "artifact.index", "db.write"],
+      "data_access": {
+        "max_data_class": "confidential",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    },
+    {
+      "actor_id": "worker-scenario-runner-v1",
+      "actor_type": "worker",
+      "display_name": "Scenario Runner Worker v1",
+      "auth_source": {
+        "kind": "service_principal",
+        "subject": "worker_scenario_runner"
+      },
+      "capability_ceiling": [
+        "scenario.run",
+        "db.write",
+        "decision.log",
+        "registry.read"
+      ],
+      "data_access": {
+        "max_data_class": "restricted",
+        "allow_filesystem_read": true,
+        "allow_filesystem_write": false,
+        "allow_network_egress": false
+      },
+      "environment_bindings": ["big-machine"],
+      "enabled": true
+    }
+  ]
+}

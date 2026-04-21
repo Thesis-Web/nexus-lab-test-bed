@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/worker-contract.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "worker_id",
+    "title",
+    "version",
+    "allowed_capabilities",
+    "side_effects",
+    "determinism",
+    "runtime",
+    "input_contract",
+    "output_contract"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "https://nexus-lab-test-bed.local/schemas/worker-contract.schema.json"
+    },
+    "worker_id": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/slug"
+    },
+    "title": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/nonEmptyString"
+    },
+    "version": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/version"
+    },
+    "allowed_capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/capability"
+      },
+      "uniqueItems": true
+    },
+    "side_effects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "none",
+          "db_write",
+          "file_read",
+          "file_write",
+          "network_local_only"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "determinism": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["language", "entrypoint", "mode"],
+      "properties": {
+        "language": {
+          "type": "string",
+          "const": "typescript"
+        },
+        "entrypoint": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mode": {
+          "type": "string",
+          "enum": ["bounded", "registry-driven"]
+        }
+      }
+    },
+    "input_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "required_fields", "notes"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "object"
+        },
+        "required_fields": {
+          "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/stringArray"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "output_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "required_fields", "notes"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "object"
+        },
+        "required_fields": {
+          "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/stringArray"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

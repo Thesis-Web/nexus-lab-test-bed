@@ -1,0 +1,69 @@
+nexus-lab-test-bed-repo-v1-0-1/
+├── apps
+├── docs
+│   ├── blueprints
+│   │   └── nexus_lab_data_bed_blueprint_v1-0-1-canonical.md
+│   ├── engineering-specs
+│   │   └── nexus_lab_data_bed_engineering_spec_v1-0-1-canonical.md
+│   └── runbooks
+│       └── local-bring-up.md
+├── infra
+│   ├── compose
+│   │   └── docker-compose.yml
+│   ├── env
+│   │   └── lab.env.example
+│   └── postgres
+│       └── init
+│           └── 001_lab_schema.sql
+├── lab_data
+│   ├── registries
+│   │   ├── actors
+│   │   │   └── actors.registry.json
+│   │   ├── models
+│   │   │   └── models.registry.json
+│   │   └── policies
+│   │       └── policies.registry.json
+│   ├── scenarios
+│   │   └── manifests
+│   │       └── dell-like-governance-smoke.scenario.json
+│   └── seeds
+│       ├── json
+│       │   ├── customers.json
+│       │   ├── locations.json
+│       │   ├── products.json
+│       │   └── scenario_storylines.json
+│       └── manifests
+│           ├── domain.seed.manifest.json
+│           └── registry.seed.manifest.json
+├── packages
+│   └── contracts
+│       ├── schemas
+│       │   ├── actor-registry.schema.json
+│       │   ├── common.schema.json
+│       │   ├── model-registry.schema.json
+│       │   ├── nexus-decision.schema.json
+│       │   ├── policy-registry.schema.json
+│       │   ├── request-envelope.schema.json
+│       │   ├── scenario-manifest.schema.json
+│       │   ├── seed-manifest.schema.json
+│       │   └── worker-contract.schema.json
+│       └── workers
+│           ├── file-intake.worker.contract.json
+│           └── scenario-runner.worker.contract.json
+├── scripts
+│   ├── local
+│   │   ├── bring-up.sh
+│   │   ├── down.sh
+│   │   └── init-host-paths.sh
+│   ├── seed
+│   │   ├── _common.mjs
+│   │   ├── load-all.mjs
+│   │   ├── load-domain-seeds.mjs
+│   │   └── load-registry-bundles.mjs
+│   └── validate
+│       └── validate-manifests.mjs
+├── tests
+├── .gitignore
+├── package.json
+├── pnpm-workspace.yaml
+└── tsconfig.base.json

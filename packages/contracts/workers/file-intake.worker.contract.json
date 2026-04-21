@@ -1,0 +1,31 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/worker-contract.schema.json",
+  "worker_id": "worker-file-intake-v1",
+  "title": "File Intake Worker v1",
+  "version": "v1-0-1",
+  "allowed_capabilities": ["file.intake", "artifact.index", "db.write"],
+  "side_effects": ["file_read", "db_write"],
+  "determinism": [
+    "Reads only declared intake roots.",
+    "Computes sha256 and size deterministically.",
+    "Does not mutate source files.",
+    "No arbitrary network egress."
+  ],
+  "runtime": {
+    "language": "typescript",
+    "entrypoint": "apps/workers/file-intake/src/main.ts",
+    "mode": "bounded"
+  },
+  "input_contract": {
+    "type": "object",
+    "required_fields": ["logical_path", "content_kind", "source_root"],
+    "notes": [
+      "content_kind must be doc, pdf, workbook, fixture, json, jsonl, or text."
+    ]
+  },
+  "output_contract": {
+    "type": "object",
+    "required_fields": ["logical_path", "sha256_hex", "size_bytes", "metadata"],
+    "notes": ["Writes metadata rows to artifact_index only."]
+  }
+}

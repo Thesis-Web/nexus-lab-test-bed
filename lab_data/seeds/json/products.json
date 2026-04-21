@@ -1,0 +1,26 @@
+[
+  {
+    "sku": "WIDGET-ALPHA",
+    "name": "Widget Alpha",
+    "description": "Baseline mechanical widget used in multiple assemblies.",
+    "product_family": "widgets",
+    "unit_of_measure": "EA",
+    "default_location_code": "PLANT-CS"
+  },
+  {
+    "sku": "WIDGET-BETA",
+    "name": "Widget Beta",
+    "description": "Enhanced widget variant with improved tolerance.",
+    "product_family": "widgets",
+    "unit_of_measure": "EA",
+    "default_location_code": "PLANT-CS"
+  },
+  {
+    "sku": "ASM-ROBOTIC-ARM",
+    "name": "Robotic Arm Assembly",
+    "description": "Configured robotic arm assembly for industrial automation cells.",
+    "product_family": "assemblies",
+    "unit_of_measure": "EA",
+    "default_location_code": "WH-HOUSTON"
+  }
+]

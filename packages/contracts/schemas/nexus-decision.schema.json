@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/nexus-decision.schema.json",
+  "title": "Nexus Decision",
+  "type": "object",
+  "required": [
+    "decisionId",
+    "requestId",
+    "state",
+    "policyTrace",
+    "evidenceRef",
+    "finalAction",
+    "timestamp"
+  ],
+  "properties": {
+    "decisionId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "requestId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "routed",
+        "executed",
+        "validated",
+        "approved",
+        "rejected",
+        "escalated"
+      ]
+    },
+    "policyTrace": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ruleId": {
+            "type": "string"
+          },
+          "actor": {
+            "type": "string"
+          },
+          "permission": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string",
+            "enum": ["allowed", "denied"]
+          }
+        },
+        "required": ["ruleId", "actor", "permission", "result"]
+      }
+    },
+    "evidenceRef": {
+      "type": "string"
+    },
+    "finalAction": {
+      "type": "string",
+      "enum": ["execute", "escalate", "reject", "approve"]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}
