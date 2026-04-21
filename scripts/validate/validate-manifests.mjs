@@ -40,8 +40,18 @@ const compiled = new Map();
 async function getValidator(schemaPath) {
   const key = path.resolve(schemaPath);
   if (compiled.has(key)) return compiled.get(key);
+
   const schema = await loadJson(key);
-  const validate = ajv.compile(schema);
+
+  let validate = null;
+  if (schema && schema.$id) {
+    validate = ajv.getSchema(schema.$id) ?? null;
+  }
+
+  if (!validate) {
+    validate = ajv.compile(schema);
+  }
+
   compiled.set(key, validate);
   return validate;
 }
