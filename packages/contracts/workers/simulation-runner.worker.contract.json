@@ -1,0 +1,37 @@
+{
+  "contractVersion": "v1-0-0",
+  "workerId": "simulation-runner",
+  "purpose": "Advance the fake-company simulation on declared clock cadences using deterministic registry-driven rules.",
+  "acceptedCommands": [
+    "tick_once",
+    "tick_until",
+    "run_continuous",
+    "pause",
+    "snapshot",
+    "reset",
+    "fork_timeline"
+  ],
+  "inputArtifacts": [
+    "lab_data/simulation/*.registry.json",
+    "lab_data/mutations/**/*.manifest.json",
+    "lab_data/seeds/json/*.json",
+    "lab_data/topology/*.registry.json"
+  ],
+  "outputArtifacts": [
+    "future simulation state records",
+    "future checkpoint records",
+    "future event emission logs",
+    "future world-state diffs"
+  ],
+  "sideEffectBoundaries": [
+    "must remain inside fake-company substrate surfaces",
+    "must not write to AI-control roots",
+    "must not depend on uncontrolled randomness"
+  ],
+  "nonGoals": [
+    "autonomous agent behavior",
+    "AI-control enforcement",
+    "Nexus runtime execution governance",
+    "live external system mutation"
+  ]
+}

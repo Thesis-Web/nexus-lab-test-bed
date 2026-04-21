@@ -802,4 +802,80 @@ for (const entry of validations) {
   }
 }
 
+function fail(message) {
+  failures += 1;
+  console.error(`Semantic validation failed: ${message}`);
+}
+
+function uniqueStrings(values, label) {
+  if (new Set(values).size !== values.length) {
+    fail(`${label} contains duplicates`);
+  }
+}
+
+const clock = await loadJson(
+  path.join(repoRoot, "lab_data", "simulation", "clock.registry.json"),
+);
+const growth = await loadJson(
+  path.join(repoRoot, "lab_data", "simulation", "growth-stages.registry.json"),
+);
+const generators = await loadJson(
+  path.join(
+    repoRoot,
+    "lab_data",
+    "simulation",
+    "event-generators.registry.json",
+  ),
+);
+const control = await loadJson(
+  path.join(repoRoot, "lab_data", "simulation", "control-modes.registry.json"),
+);
+const facility = await loadJson(
+  path.join(
+    repoRoot,
+    "lab_data",
+    "simulation",
+    "facility-lifecycle.registry.json",
+  ),
+);
+
+const stageIds = growth.stages.map((s) => s.stage_id);
+const tickIds = clock.tick_profiles.map((t) => t.tick_id);
+const generatorIds = generators.generators.map((g) => g.generator_id);
+const controlModeIds = control.modes.map((m) => m.mode_id);
+
+uniqueStrings(stageIds, "growth stage ids");
+uniqueStrings(tickIds, "clock tick ids");
+uniqueStrings(generatorIds, "event generator ids");
+uniqueStrings(controlModeIds, "control mode ids");
+
+const stageSet = new Set(stageIds);
+const tickSet = new Set(tickIds);
+const multiplierKeys = Object.keys(clock.stage_cadence_multipliers).sort();
+const facilityStageKeys = Object.keys(facility.stage_applicability).sort();
+const sortedStageIds = [...stageIds].sort();
+
+if (JSON.stringify(multiplierKeys) !== JSON.stringify(sortedStageIds)) {
+  fail("stage_cadence_multipliers keys do not match growth stage ids");
+}
+
+if (JSON.stringify(facilityStageKeys) !== JSON.stringify(sortedStageIds)) {
+  fail("facility stage applicability keys do not match growth stage ids");
+}
+
+for (const generator of generators.generators) {
+  for (const stageId of generator.supported_stages) {
+    if (!stageSet.has(stageId)) {
+      fail(
+        `generator ${generator.generator_id} references unknown stage ${stageId}`,
+      );
+    }
+  }
+  if (!tickSet.has(generator.default_cadence)) {
+    fail(
+      `generator ${generator.generator_id} references unknown cadence ${generator.default_cadence}`,
+    );
+  }
+}
+
 if (failures > 0) process.exit(1);
