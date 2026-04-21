@@ -1,0 +1,31 @@
+{
+  "registry_id": "simulation-workforce-lifecycle",
+  "version": "v1-0-0",
+  "transitions": [
+    "requisition",
+    "candidate",
+    "hire",
+    "onboarding",
+    "transfer",
+    "promotion",
+    "role_change",
+    "leave",
+    "layoff",
+    "retirement",
+    "termination"
+  ],
+  "entry_channels": [
+    "manager_request",
+    "growth_stage_trigger",
+    "backfill_trigger"
+  ],
+  "exit_channels": ["voluntary_exit", "retirement", "layoff", "termination"],
+  "asset_access_implications": [
+    "equipment_assignment",
+    "identity_enable",
+    "identity_disable",
+    "mailbox_enable",
+    "mailbox_disable",
+    "local_access_review"
+  ]
+}

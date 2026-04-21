@@ -1,0 +1,30 @@
+{
+  "registry_id": "simulation-control-modes",
+  "version": "v1-0-0",
+  "modes": [
+    {
+      "mode_id": "continuous",
+      "description": "Simulated company runs until stopped."
+    },
+    {
+      "mode_id": "paused",
+      "description": "Clock advances stopped; state preserved."
+    },
+    {
+      "mode_id": "snapshot",
+      "description": "Point-in-time checkpoint captured for future resume or comparison."
+    },
+    {
+      "mode_id": "reset",
+      "description": "Return to baseline seed state."
+    },
+    {
+      "mode_id": "rewind",
+      "description": "Return to a previous checkpoint in the same timeline."
+    },
+    {
+      "mode_id": "forked_timeline",
+      "description": "Create a new branch from an existing checkpoint."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "registry_id": "simulation-growth-stages",
+  "version": "v1-0-0",
+  "stages": [
+    {
+      "stage_id": "small_local",
+      "title": "Small Local Company",
+      "headcount_band": "15-40",
+      "facility_profile": ["hq_office", "single_warehouse_or_shop"],
+      "communications_volume": "light",
+      "procurement_pressure": "light",
+      "governance_pressure": "light"
+    },
+    {
+      "stage_id": "multi_site_small",
+      "title": "Small Multi-site Company",
+      "headcount_band": "35-90",
+      "facility_profile": ["hq_office", "warehouse", "branch_office"],
+      "communications_volume": "moderate",
+      "procurement_pressure": "moderate",
+      "governance_pressure": "moderate"
+    },
+    {
+      "stage_id": "regional_midmarket",
+      "title": "Regional Mid-market Company",
+      "headcount_band": "90-350",
+      "facility_profile": [
+        "hq",
+        "regional_warehouse",
+        "branch_offices",
+        "service_center"
+      ],
+      "communications_volume": "heavy",
+      "procurement_pressure": "heavy",
+      "governance_pressure": "high"
+    },
+    {
+      "stage_id": "multi_region_enterprise",
+      "title": "Multi-region Enterprise",
+      "headcount_band": "350+",
+      "facility_profile": [
+        "hq",
+        "regional_nodes",
+        "multiple_branch_sites",
+        "mixed_owned_and_leased_sites"
+      ],
+      "communications_volume": "very_heavy",
+      "procurement_pressure": "very_heavy",
+      "governance_pressure": "very_high"
+    }
+  ]
+}

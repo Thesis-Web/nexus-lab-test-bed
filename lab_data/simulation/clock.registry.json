@@ -1,0 +1,48 @@
+{
+  "registry_id": "simulation-clock",
+  "version": "v1-0-0",
+  "timezone": "America/Chicago",
+  "business_week": ["monday", "tuesday", "wednesday", "thursday", "friday"],
+  "business_day": {
+    "start_local": "08:00",
+    "end_local": "18:00"
+  },
+  "tick_profiles": [
+    {
+      "tick_id": "minute-core",
+      "unit": "minute",
+      "interval": 15,
+      "used_for": ["communications", "alerts"]
+    },
+    {
+      "tick_id": "hourly-core",
+      "unit": "hour",
+      "interval": 1,
+      "used_for": ["operations", "support", "shipping"]
+    },
+    {
+      "tick_id": "daily-core",
+      "unit": "day",
+      "interval": 1,
+      "used_for": ["finance", "inventory", "sales"]
+    },
+    {
+      "tick_id": "weekly-core",
+      "unit": "week",
+      "interval": 1,
+      "used_for": ["meetings", "forecast", "maintenance"]
+    },
+    {
+      "tick_id": "monthly-core",
+      "unit": "month",
+      "interval": 1,
+      "used_for": ["growth-stage", "facility-review"]
+    }
+  ],
+  "stage_cadence_multipliers": {
+    "small_local": 1.0,
+    "multi_site_small": 1.4,
+    "regional_midmarket": 2.0,
+    "multi_region_enterprise": 3.0
+  }
+}

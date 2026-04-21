@@ -1,0 +1,112 @@
+{
+  "registry_id": "simulation-event-generators",
+  "version": "v1-0-0",
+  "generators": [
+    {
+      "generator_id": "communications-inbound",
+      "family": "communications",
+      "supported_stages": [
+        "small_local",
+        "multi_site_small",
+        "regional_midmarket",
+        "multi_region_enterprise"
+      ],
+      "default_cadence": "minute-core",
+      "outputs": ["email", "chat", "ticket"],
+      "deterministic_notes": "weighted by stage multiplier"
+    },
+    {
+      "generator_id": "procurement-requests",
+      "family": "procurement",
+      "supported_stages": [
+        "small_local",
+        "multi_site_small",
+        "regional_midmarket",
+        "multi_region_enterprise"
+      ],
+      "default_cadence": "daily-core",
+      "outputs": ["requisition", "po", "approval"],
+      "deterministic_notes": "office-supplies and parts requests scale by stage"
+    },
+    {
+      "generator_id": "finance-inbox",
+      "family": "finance",
+      "supported_stages": [
+        "small_local",
+        "multi_site_small",
+        "regional_midmarket",
+        "multi_region_enterprise"
+      ],
+      "default_cadence": "daily-core",
+      "outputs": ["invoice", "payment_state", "journal"],
+      "deterministic_notes": "scheduled invoice/payment cadence"
+    },
+    {
+      "generator_id": "workforce-lifecycle",
+      "family": "workforce",
+      "supported_stages": [
+        "multi_site_small",
+        "regional_midmarket",
+        "multi_region_enterprise"
+      ],
+      "default_cadence": "weekly-core",
+      "outputs": ["hire", "transfer", "promotion", "exit"],
+      "deterministic_notes": "stage-gated growth and churn"
+    },
+    {
+      "generator_id": "facility-expansion",
+      "family": "facilities",
+      "supported_stages": ["regional_midmarket", "multi_region_enterprise"],
+      "default_cadence": "monthly-core",
+      "outputs": ["site_open", "site_expand", "site_retire"],
+      "deterministic_notes": "threshold-driven by stage and load"
+    },
+    {
+      "generator_id": "customer-pressure",
+      "family": "customer",
+      "supported_stages": [
+        "small_local",
+        "multi_site_small",
+        "regional_midmarket",
+        "multi_region_enterprise"
+      ],
+      "default_cadence": "hourly-core",
+      "outputs": ["complaint", "order_change", "meeting_request"],
+      "deterministic_notes": "customer activity scales by stage"
+    },
+    {
+      "generator_id": "vendor-activity",
+      "family": "vendor",
+      "supported_stages": [
+        "small_local",
+        "multi_site_small",
+        "regional_midmarket",
+        "multi_region_enterprise"
+      ],
+      "default_cadence": "hourly-core",
+      "outputs": ["quote", "invoice", "shipment_notice"],
+      "deterministic_notes": "vendor count and category widen by stage"
+    },
+    {
+      "generator_id": "engineering-change",
+      "family": "engineering",
+      "supported_stages": [
+        "small_local",
+        "multi_site_small",
+        "regional_midmarket",
+        "multi_region_enterprise"
+      ],
+      "default_cadence": "daily-core",
+      "outputs": ["github_issue", "ticket", "change_request"],
+      "deterministic_notes": "tech change pressure tied to operational load"
+    },
+    {
+      "generator_id": "governance-pressure",
+      "family": "governance-pressure",
+      "supported_stages": ["regional_midmarket", "multi_region_enterprise"],
+      "default_cadence": "weekly-core",
+      "outputs": ["approval_delay", "policy_exception", "shadow_ai_signal"],
+      "deterministic_notes": "later-stage complexity driver"
+    }
+  ]
+}

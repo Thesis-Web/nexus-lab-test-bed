@@ -1,0 +1,29 @@
+{
+  "registry_id": "simulation-asset-expansion",
+  "version": "v1-0-0",
+  "asset_classes": [
+    "it_equipment",
+    "tooling",
+    "fleet_vehicle",
+    "machinery",
+    "office_furniture",
+    "leased_equipment",
+    "property_improvement_placeholder"
+  ],
+  "lifecycle_chain": [
+    "request",
+    "approval",
+    "purchase",
+    "assignment",
+    "maintenance",
+    "reassignment",
+    "retirement",
+    "disposal"
+  ],
+  "example_triggers": [
+    "new_hire_needs_laptop",
+    "branch_office_requires_fleet_vehicle",
+    "warehouse_expansion_requires_tooling",
+    "facility_upgrade_requires_property_improvement"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "registry_id": "simulation-facility-lifecycle",
+  "version": "v1-0-0",
+  "facility_classes": [
+    "hq_office",
+    "warehouse",
+    "branch_office",
+    "service_center",
+    "plant",
+    "leased_site",
+    "owned_site"
+  ],
+  "transitions": [
+    {
+      "transition_id": "open_site",
+      "from": "planned",
+      "to": "active"
+    },
+    {
+      "transition_id": "expand_site",
+      "from": "active",
+      "to": "expanded"
+    },
+    {
+      "transition_id": "consolidate_site",
+      "from": "expanded",
+      "to": "consolidated"
+    },
+    {
+      "transition_id": "retire_site",
+      "from": "active",
+      "to": "retired"
+    }
+  ],
+  "stage_applicability": {
+    "small_local": ["hq_office", "warehouse"],
+    "multi_site_small": ["hq_office", "warehouse", "branch_office"],
+    "regional_midmarket": [
+      "hq_office",
+      "warehouse",
+      "branch_office",
+      "service_center",
+      "leased_site"
+    ],
+    "multi_region_enterprise": [
+      "hq_office",
+      "warehouse",
+      "branch_office",
+      "service_center",
+      "plant",
+      "leased_site",
+      "owned_site"
+    ]
+  }
+}
