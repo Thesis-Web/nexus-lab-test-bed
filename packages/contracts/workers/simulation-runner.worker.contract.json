@@ -1,37 +1,40 @@
 {
-  "contractVersion": "v1-0-0",
-  "workerId": "simulation-runner",
-  "purpose": "Advance the fake-company simulation on declared clock cadences using deterministic registry-driven rules.",
-  "acceptedCommands": [
-    "tick_once",
-    "tick_until",
-    "run_continuous",
-    "pause",
-    "snapshot",
-    "reset",
-    "fork_timeline"
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/worker-contract.schema.json",
+  "worker_id": "worker-simulation-runner-v1",
+  "title": "Simulation Runner Worker v1",
+  "version": "v1-0-0",
+  "allowed_capabilities": ["simulation.run", "registry.read", "db.write"],
+  "side_effects": ["file_read", "db_write"],
+  "determinism": [
+    "Loads only declared simulation registries, topology registries, seed data, and mutation manifests.",
+    "Advances simulation only by declared clock and stage rules.",
+    "Does not use uncontrolled randomness.",
+    "Does not write to AI-control roots."
   ],
-  "inputArtifacts": [
-    "lab_data/simulation/*.registry.json",
-    "lab_data/mutations/**/*.manifest.json",
-    "lab_data/seeds/json/*.json",
-    "lab_data/topology/*.registry.json"
-  ],
-  "outputArtifacts": [
-    "future simulation state records",
-    "future checkpoint records",
-    "future event emission logs",
-    "future world-state diffs"
-  ],
-  "sideEffectBoundaries": [
-    "must remain inside fake-company substrate surfaces",
-    "must not write to AI-control roots",
-    "must not depend on uncontrolled randomness"
-  ],
-  "nonGoals": [
-    "autonomous agent behavior",
-    "AI-control enforcement",
-    "Nexus runtime execution governance",
-    "live external system mutation"
-  ]
+  "runtime": {
+    "language": "typescript",
+    "entrypoint": "apps/workers/simulation-runner/src/main.ts",
+    "mode": "bounded"
+  },
+  "input_contract": {
+    "type": "object",
+    "required_fields": ["command", "simulation_clock_ref", "growth_stage_ref"],
+    "notes": [
+      "command must be one of tick_once, tick_until, run_continuous, pause, snapshot, reset, or fork_timeline.",
+      "Refs must point only to declared simulation registry surfaces in this repo."
+    ]
+  },
+  "output_contract": {
+    "type": "object",
+    "required_fields": [
+      "command",
+      "result_status",
+      "applied_ticks",
+      "artifacts"
+    ],
+    "notes": [
+      "Phase H defines the contract surface only; future runtime phases may persist checkpoint and world-state artifacts.",
+      "No AI-control mutation is allowed."
+    ]
+  }
 }
