@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/simulation-facility-lifecycle-registry.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "registry_id",
+    "version",
+    "facility_classes",
+    "transitions",
+    "stage_applicability"
+  ],
+  "properties": {
+    "registry_id": {
+      "const": "simulation-facility-lifecycle"
+    },
+    "version": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/version"
+    },
+    "facility_classes": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/stringArray"
+    },
+    "transitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["transition_id", "from", "to"],
+        "properties": {
+          "transition_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:[-_][a-z0-9]+)*$"
+          },
+          "from": {
+            "type": "string",
+            "minLength": 1
+          },
+          "to": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "stage_applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "small_local",
+        "multi_site_small",
+        "regional_midmarket",
+        "multi_region_enterprise"
+      ],
+      "properties": {
+        "small_local": {
+          "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/stringArray"
+        },
+        "multi_site_small": {
+          "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/stringArray"
+        },
+        "regional_midmarket": {
+          "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/stringArray"
+        },
+        "multi_region_enterprise": {
+          "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/stringArray"
+        }
+      }
+    }
+  }
+}

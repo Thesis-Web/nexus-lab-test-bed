@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/simulation-growth-stage-registry.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["registry_id", "version", "stages"],
+  "properties": {
+    "registry_id": {
+      "const": "simulation-growth-stages"
+    },
+    "version": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/version"
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "stage_id",
+          "title",
+          "headcount_band",
+          "facility_profile",
+          "communications_volume",
+          "procurement_pressure",
+          "governance_pressure"
+        ],
+        "properties": {
+          "stage_id": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/stageId"
+          },
+          "title": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/nonEmptyString"
+          },
+          "headcount_band": {
+            "type": "string",
+            "minLength": 1
+          },
+          "facility_profile": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/stringArray"
+          },
+          "communications_volume": {
+            "type": "string",
+            "minLength": 1
+          },
+          "procurement_pressure": {
+            "type": "string",
+            "minLength": 1
+          },
+          "governance_pressure": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

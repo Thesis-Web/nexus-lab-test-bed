@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/simulation-event-generator-registry.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["registry_id", "version", "generators"],
+  "properties": {
+    "registry_id": {
+      "const": "simulation-event-generators"
+    },
+    "version": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/version"
+    },
+    "generators": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "generator_id",
+          "family",
+          "supported_stages",
+          "default_cadence",
+          "outputs",
+          "deterministic_notes"
+        ],
+        "properties": {
+          "generator_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:[-_][a-z0-9]+)*$"
+          },
+          "family": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/generatorFamily"
+          },
+          "supported_stages": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/stageId"
+            }
+          },
+          "default_cadence": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/tickId"
+          },
+          "outputs": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/stringArray"
+          },
+          "deterministic_notes": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/nonEmptyString"
+          }
+        }
+      }
+    }
+  }
+}

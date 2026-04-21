@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json",
+  "$defs": {
+    "stageId": {
+      "type": "string",
+      "enum": [
+        "small_local",
+        "multi_site_small",
+        "regional_midmarket",
+        "multi_region_enterprise"
+      ]
+    },
+    "tickId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[-_][a-z0-9]+)*$"
+    },
+    "generatorFamily": {
+      "type": "string",
+      "enum": [
+        "communications",
+        "operations",
+        "procurement",
+        "finance",
+        "workforce",
+        "facilities",
+        "customer",
+        "vendor",
+        "engineering",
+        "governance-pressure"
+      ]
+    },
+    "stringArray": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

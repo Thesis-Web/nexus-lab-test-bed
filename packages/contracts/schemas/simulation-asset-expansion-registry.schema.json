@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/simulation-asset-expansion-registry.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "registry_id",
+    "version",
+    "asset_classes",
+    "lifecycle_chain",
+    "example_triggers"
+  ],
+  "properties": {
+    "registry_id": {
+      "const": "simulation-asset-expansion"
+    },
+    "version": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/common.schema.json#/$defs/version"
+    },
+    "asset_classes": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/stringArray"
+    },
+    "lifecycle_chain": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/stringArray"
+    },
+    "example_triggers": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/simulation-common.schema.json#/$defs/stringArray"
+    }
+  }
+}
