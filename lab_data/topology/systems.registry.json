@@ -1,0 +1,155 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/topology-system-registry.schema.json",
+  "registry_id": "topology-systems-default",
+  "version": "v1-0-0",
+  "generated_at": "2026-04-21T00:00:00Z",
+  "systems": [
+    {
+      "system_id": "github",
+      "display_name": "GitHub",
+      "category": "source_control",
+      "deployment_lane": "cloud",
+      "primary_interfaces": ["repo", "issues", "pull_requests", "actions"],
+      "system_of_record": false,
+      "sensitive_default": false,
+      "notes": "Engineering workflow and technical intake."
+    },
+    {
+      "system_id": "jira",
+      "display_name": "Jira",
+      "category": "ticketing",
+      "deployment_lane": "cloud",
+      "primary_interfaces": ["tickets", "queues", "workflows"],
+      "system_of_record": false,
+      "sensitive_default": false,
+      "notes": "Work intake and issue routing."
+    },
+    {
+      "system_id": "confluence",
+      "display_name": "Confluence",
+      "category": "knowledge",
+      "deployment_lane": "cloud",
+      "primary_interfaces": ["pages", "runbooks", "specs"],
+      "system_of_record": false,
+      "sensitive_default": false,
+      "notes": "Department and process knowledge."
+    },
+    {
+      "system_id": "slack",
+      "display_name": "Slack",
+      "category": "chat",
+      "deployment_lane": "cloud",
+      "primary_interfaces": ["channels", "threads", "alerts"],
+      "system_of_record": false,
+      "sensitive_default": false,
+      "notes": "Coordination and escalation chatter."
+    },
+    {
+      "system_id": "google-workspace-mail",
+      "display_name": "Google Workspace Mail",
+      "category": "workspace_mail",
+      "deployment_lane": "cloud",
+      "primary_interfaces": ["email", "attachments"],
+      "system_of_record": false,
+      "sensitive_default": false,
+      "notes": "Mailbox surface for internal and vendor traffic."
+    },
+    {
+      "system_id": "google-workspace-calendar",
+      "display_name": "Google Workspace Calendar",
+      "category": "workspace_calendar",
+      "deployment_lane": "cloud",
+      "primary_interfaces": ["events", "meeting_invites"],
+      "system_of_record": false,
+      "sensitive_default": false,
+      "notes": "Meeting and review scheduling."
+    },
+    {
+      "system_id": "google-workspace-drive",
+      "display_name": "Google Workspace Drive",
+      "category": "workspace_drive",
+      "deployment_lane": "cloud",
+      "primary_interfaces": ["files", "folders"],
+      "system_of_record": false,
+      "sensitive_default": false,
+      "notes": "Shared business document storage."
+    },
+    {
+      "system_id": "google-workspace-docs",
+      "display_name": "Google Workspace Docs",
+      "category": "workspace_docs",
+      "deployment_lane": "cloud",
+      "primary_interfaces": ["docs", "comments"],
+      "system_of_record": false,
+      "sensitive_default": false,
+      "notes": "Shared collaborative document authoring."
+    },
+    {
+      "system_id": "google-workspace-sheets",
+      "display_name": "Google Workspace Sheets",
+      "category": "workspace_sheets",
+      "deployment_lane": "cloud",
+      "primary_interfaces": ["sheets", "tables", "forecasts"],
+      "system_of_record": false,
+      "sensitive_default": false,
+      "notes": "Shared operational planning sheets."
+    },
+    {
+      "system_id": "notion",
+      "display_name": "Notion",
+      "category": "knowledge",
+      "deployment_lane": "cloud",
+      "primary_interfaces": ["wiki", "notes", "databases"],
+      "system_of_record": false,
+      "sensitive_default": false,
+      "notes": "Internal lightweight knowledge and note surfaces."
+    },
+    {
+      "system_id": "erpnext",
+      "display_name": "ERPNext",
+      "category": "erp",
+      "deployment_lane": "cloud",
+      "primary_interfaces": [
+        "items",
+        "vendors",
+        "purchase_orders",
+        "receipts",
+        "inventory",
+        "invoices"
+      ],
+      "system_of_record": true,
+      "sensitive_default": true,
+      "notes": "ERP-like system-of-record substrate for business operations."
+    },
+    {
+      "system_id": "local-libreoffice",
+      "display_name": "Local LibreOffice",
+      "category": "local_office",
+      "deployment_lane": "local",
+      "primary_interfaces": ["calc", "writer", "conversion", "templates"],
+      "system_of_record": false,
+      "sensitive_default": true,
+      "notes": "Local restricted workbook and document lane."
+    },
+    {
+      "system_id": "local-restricted-files",
+      "display_name": "Local Restricted Files",
+      "category": "local_filesystem",
+      "deployment_lane": "local",
+      "primary_interfaces": ["files", "exports", "staging"],
+      "system_of_record": false,
+      "sensitive_default": true,
+      "notes": "Local-only restricted file area."
+    },
+    {
+      "system_id": "postgres-lab",
+      "display_name": "Postgres Lab Database",
+      "category": "database",
+      "deployment_lane": "local",
+      "primary_interfaces": ["tables", "jsonb", "audit"],
+      "system_of_record": true,
+      "sensitive_default": true,
+      "notes": "Local structured state for lab replay, decisions, and seeded business state."
+    }
+  ]
+}

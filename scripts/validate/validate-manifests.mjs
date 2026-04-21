@@ -77,6 +77,43 @@ const validations = [
   },
   {
     schemaId:
+      "https://nexus-lab-test-bed.local/schemas/topology-department-registry.schema.json",
+    files: [path.join(repoRoot, "lab_data/topology/departments.registry.json")],
+  },
+  {
+    schemaId:
+      "https://nexus-lab-test-bed.local/schemas/topology-mailbox-registry.schema.json",
+    files: [path.join(repoRoot, "lab_data/topology/mailboxes.registry.json")],
+  },
+  {
+    schemaId:
+      "https://nexus-lab-test-bed.local/schemas/topology-system-registry.schema.json",
+    files: [path.join(repoRoot, "lab_data/topology/systems.registry.json")],
+  },
+  {
+    schemaId:
+      "https://nexus-lab-test-bed.local/schemas/topology-data-zone-registry.schema.json",
+    files: [path.join(repoRoot, "lab_data/topology/data-zones.registry.json")],
+  },
+  {
+    schemaId:
+      "https://nexus-lab-test-bed.local/schemas/topology-ingress-registry.schema.json",
+    files: [
+      path.join(repoRoot, "lab_data/topology/ingress-points.registry.json"),
+    ],
+  },
+  {
+    schemaId:
+      "https://nexus-lab-test-bed.local/schemas/topology-transactional-chain-registry.schema.json",
+    files: [
+      path.join(
+        repoRoot,
+        "lab_data/topology/transactional-chains.registry.json",
+      ),
+    ],
+  },
+  {
+    schemaId:
       "https://nexus-lab-test-bed.local/contracts/domain/company-profile.schema.json",
     files: [path.join(repoRoot, "lab_data/seeds/json/company_profile.json")],
   },

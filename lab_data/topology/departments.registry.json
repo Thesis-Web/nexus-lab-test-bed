@@ -1,0 +1,94 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/topology-department-registry.schema.json",
+  "registry_id": "topology-departments-default",
+  "version": "v1-0-0",
+  "generated_at": "2026-04-21T00:00:00Z",
+  "departments": [
+    {
+      "department_code": "EXEC",
+      "display_name": "Executive",
+      "manager_actor_id": "human-lab-owner",
+      "primary_systems": [
+        "google-workspace-mail",
+        "google-workspace-calendar",
+        "notion"
+      ],
+      "default_data_zone": "cloud-business-internal"
+    },
+    {
+      "department_code": "OPER",
+      "display_name": "Operations",
+      "manager_actor_id": "ops-manager",
+      "primary_systems": ["slack", "erpnext", "google-workspace-sheets"],
+      "default_data_zone": "cloud-business-internal"
+    },
+    {
+      "department_code": "SALES",
+      "display_name": "Sales",
+      "manager_actor_id": "sales-lead",
+      "primary_systems": [
+        "google-workspace-mail",
+        "google-workspace-calendar",
+        "notion"
+      ],
+      "default_data_zone": "cloud-collaboration"
+    },
+    {
+      "department_code": "FIN",
+      "display_name": "Finance",
+      "manager_actor_id": "finance-lead",
+      "primary_systems": [
+        "erpnext",
+        "local-libreoffice",
+        "local-restricted-files"
+      ],
+      "default_data_zone": "local-restricted"
+    },
+    {
+      "department_code": "PURCH",
+      "display_name": "Purchasing",
+      "manager_actor_id": "purchasing-agent",
+      "primary_systems": [
+        "google-workspace-mail",
+        "erpnext",
+        "google-workspace-sheets"
+      ],
+      "default_data_zone": "cloud-business-internal"
+    },
+    {
+      "department_code": "PROD",
+      "display_name": "Production",
+      "manager_actor_id": "production-coordinator",
+      "primary_systems": ["erpnext", "slack"],
+      "default_data_zone": "system-of-record"
+    },
+    {
+      "department_code": "MAINT",
+      "display_name": "Maintenance",
+      "manager_actor_id": "maintenance-lead",
+      "primary_systems": ["jira", "confluence", "slack"],
+      "default_data_zone": "cloud-business-internal"
+    },
+    {
+      "department_code": "ENG",
+      "display_name": "Engineering",
+      "manager_actor_id": "engineer",
+      "primary_systems": ["github", "jira", "confluence"],
+      "default_data_zone": "cloud-collaboration"
+    },
+    {
+      "department_code": "SUPPORT",
+      "display_name": "Customer Support",
+      "manager_actor_id": "support-lead",
+      "primary_systems": ["google-workspace-mail", "jira", "slack"],
+      "default_data_zone": "cloud-business-internal"
+    },
+    {
+      "department_code": "LOG",
+      "display_name": "Logistics",
+      "manager_actor_id": "shipping-coordinator",
+      "primary_systems": ["erpnext", "slack", "google-workspace-mail"],
+      "default_data_zone": "system-of-record"
+    }
+  ]
+}

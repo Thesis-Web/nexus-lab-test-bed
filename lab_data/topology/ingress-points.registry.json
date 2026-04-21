@@ -1,0 +1,89 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/topology-ingress-registry.schema.json",
+  "registry_id": "topology-ingress-default",
+  "version": "v1-0-0",
+  "generated_at": "2026-04-21T00:00:00Z",
+  "ingress_points": [
+    {
+      "ingress_id": "vendor-email-inbox",
+      "title": "Vendor Email Inbox",
+      "channel_type": "email",
+      "landing_system_id": "google-workspace-mail",
+      "default_data_zone": "cloud-business-internal",
+      "evidence_required": true,
+      "notes": "Quotes, invoices, shipment notices, and vendor questions arrive here."
+    },
+    {
+      "ingress_id": "slack-ops-channel",
+      "title": "Slack Operations Channel",
+      "channel_type": "chat",
+      "landing_system_id": "slack",
+      "default_data_zone": "cloud-business-internal",
+      "evidence_required": true,
+      "notes": "Ad hoc operations chatter and escalation requests."
+    },
+    {
+      "ingress_id": "jira-ticket-intake",
+      "title": "Jira Ticket Intake",
+      "channel_type": "ticket",
+      "landing_system_id": "jira",
+      "default_data_zone": "cloud-business-internal",
+      "evidence_required": true,
+      "notes": "Structured work intake and follow-up tracking."
+    },
+    {
+      "ingress_id": "calendar-ops-review",
+      "title": "Calendar Operations Review",
+      "channel_type": "calendar",
+      "landing_system_id": "google-workspace-calendar",
+      "default_data_zone": "cloud-collaboration",
+      "evidence_required": true,
+      "notes": "Meeting-driven decision flows and follow-up generation."
+    },
+    {
+      "ingress_id": "sheet-forecast-update",
+      "title": "Shared Forecast Sheet Update",
+      "channel_type": "sheet",
+      "landing_system_id": "google-workspace-sheets",
+      "default_data_zone": "cloud-business-internal",
+      "evidence_required": true,
+      "notes": "Shared planning changes that may create downstream action."
+    },
+    {
+      "ingress_id": "erpnext-stock-alert",
+      "title": "ERP Stock Alert",
+      "channel_type": "erp_event",
+      "landing_system_id": "erpnext",
+      "default_data_zone": "system-of-record",
+      "evidence_required": true,
+      "notes": "Inventory triggers and procurement pressure from ERP state."
+    },
+    {
+      "ingress_id": "local-workbook-adjustment",
+      "title": "Local Workbook Adjustment",
+      "channel_type": "local_workbook",
+      "landing_system_id": "local-libreoffice",
+      "default_data_zone": "local-restricted",
+      "evidence_required": true,
+      "notes": "Restricted local workbook changes outside cloud tools."
+    },
+    {
+      "ingress_id": "github-issue-intake",
+      "title": "GitHub Issue Intake",
+      "channel_type": "github_issue",
+      "landing_system_id": "github",
+      "default_data_zone": "cloud-collaboration",
+      "evidence_required": true,
+      "notes": "Technical and operational follow-up through engineering workflow."
+    },
+    {
+      "ingress_id": "policy-doc-update",
+      "title": "Policy or SOP Update",
+      "channel_type": "doc",
+      "landing_system_id": "google-workspace-docs",
+      "default_data_zone": "cloud-collaboration",
+      "evidence_required": true,
+      "notes": "Changes to process or policy documents."
+    }
+  ]
+}

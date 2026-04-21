@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/topology-system-registry.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "registry_id",
+    "version",
+    "generated_at",
+    "systems"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "https://nexus-lab-test-bed.local/schemas/topology-system-registry.schema.json"
+    },
+    "registry_id": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/slug"
+    },
+    "version": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/version"
+    },
+    "generated_at": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/timestamp"
+    },
+    "systems": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "system_id",
+          "display_name",
+          "category",
+          "deployment_lane",
+          "primary_interfaces",
+          "system_of_record",
+          "sensitive_default"
+        ],
+        "properties": {
+          "system_id": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/slug"
+          },
+          "display_name": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/nonEmptyString"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "source_control",
+              "ticketing",
+              "knowledge",
+              "chat",
+              "workspace_mail",
+              "workspace_calendar",
+              "workspace_drive",
+              "workspace_docs",
+              "workspace_sheets",
+              "erp",
+              "local_office",
+              "local_filesystem",
+              "database"
+            ]
+          },
+          "deployment_lane": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/deploymentLane"
+          },
+          "primary_interfaces": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/stringArray"
+          },
+          "system_of_record": {
+            "type": "boolean"
+          },
+          "sensitive_default": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/topology-department-registry.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "registry_id",
+    "version",
+    "generated_at",
+    "departments"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "https://nexus-lab-test-bed.local/schemas/topology-department-registry.schema.json"
+    },
+    "registry_id": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/slug"
+    },
+    "version": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/version"
+    },
+    "generated_at": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/timestamp"
+    },
+    "departments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "department_code",
+          "display_name",
+          "manager_actor_id",
+          "primary_systems",
+          "default_data_zone"
+        ],
+        "properties": {
+          "department_code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "display_name": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/nonEmptyString"
+          },
+          "manager_actor_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "primary_systems": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/stringArray"
+          },
+          "default_data_zone": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/slug"
+          }
+        }
+      }
+    }
+  }
+}

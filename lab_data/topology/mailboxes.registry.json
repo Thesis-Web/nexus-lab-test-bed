@@ -1,0 +1,143 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/topology-mailbox-registry.schema.json",
+  "registry_id": "topology-mailboxes-default",
+  "version": "v1-0-0",
+  "generated_at": "2026-04-21T00:00:00Z",
+  "mailboxes": [
+    {
+      "mailbox_id": "owner-mailbox",
+      "address": "owner@nexlabco.test",
+      "mailbox_type": "human",
+      "owner_ref": "human-lab-owner",
+      "department_code": "EXEC",
+      "primary_system": "google-workspace-mail",
+      "default_data_zone": "cloud-business-internal"
+    },
+    {
+      "mailbox_id": "approvals-shared",
+      "address": "approvals@nexlabco.test",
+      "mailbox_type": "shared",
+      "owner_ref": "EXEC",
+      "department_code": "EXEC",
+      "primary_system": "google-workspace-mail",
+      "default_data_zone": "cloud-business-internal"
+    },
+    {
+      "mailbox_id": "purchasing-shared",
+      "address": "purchasing@nexlabco.test",
+      "mailbox_type": "shared",
+      "owner_ref": "PURCH",
+      "department_code": "PURCH",
+      "primary_system": "google-workspace-mail",
+      "default_data_zone": "cloud-business-internal"
+    },
+    {
+      "mailbox_id": "ap-shared",
+      "address": "ap@nexlabco.test",
+      "mailbox_type": "shared",
+      "owner_ref": "FIN",
+      "department_code": "FIN",
+      "primary_system": "google-workspace-mail",
+      "default_data_zone": "local-restricted"
+    },
+    {
+      "mailbox_id": "receiving-shared",
+      "address": "receiving@nexlabco.test",
+      "mailbox_type": "shared",
+      "owner_ref": "LOG",
+      "department_code": "LOG",
+      "primary_system": "google-workspace-mail",
+      "default_data_zone": "system-of-record"
+    },
+    {
+      "mailbox_id": "ops-shared",
+      "address": "ops@nexlabco.test",
+      "mailbox_type": "shared",
+      "owner_ref": "OPER",
+      "department_code": "OPER",
+      "primary_system": "google-workspace-mail",
+      "default_data_zone": "cloud-business-internal"
+    },
+    {
+      "mailbox_id": "sales-shared",
+      "address": "sales@nexlabco.test",
+      "mailbox_type": "shared",
+      "owner_ref": "SALES",
+      "department_code": "SALES",
+      "primary_system": "google-workspace-mail",
+      "default_data_zone": "cloud-collaboration"
+    },
+    {
+      "mailbox_id": "support-shared",
+      "address": "support@nexlabco.test",
+      "mailbox_type": "shared",
+      "owner_ref": "SUPPORT",
+      "department_code": "SUPPORT",
+      "primary_system": "google-workspace-mail",
+      "default_data_zone": "cloud-business-internal"
+    },
+    {
+      "mailbox_id": "engineering-shared",
+      "address": "engineering@nexlabco.test",
+      "mailbox_type": "shared",
+      "owner_ref": "ENG",
+      "department_code": "ENG",
+      "primary_system": "google-workspace-mail",
+      "default_data_zone": "cloud-collaboration"
+    },
+    {
+      "mailbox_id": "notifications-system",
+      "address": "notifications@nexlabco.test",
+      "mailbox_type": "system",
+      "owner_ref": "service-nexus",
+      "department_code": "EXEC",
+      "primary_system": "google-workspace-mail",
+      "default_data_zone": "audit-evidence"
+    },
+    {
+      "mailbox_id": "vendor-paper-billing",
+      "address": "billing@nexus-paper-vendor.test",
+      "mailbox_type": "vendor",
+      "owner_ref": "vendor-office-supplies",
+      "department_code": "",
+      "primary_system": "google-workspace-mail",
+      "default_data_zone": "cloud-business-internal"
+    },
+    {
+      "mailbox_id": "vendor-paper-quotes",
+      "address": "quotes@nexus-paper-vendor.test",
+      "mailbox_type": "vendor",
+      "owner_ref": "vendor-office-supplies",
+      "department_code": "",
+      "primary_system": "google-workspace-mail",
+      "default_data_zone": "cloud-business-internal"
+    },
+    {
+      "mailbox_id": "vendor-parts-billing",
+      "address": "billing@nexus-parts-vendor.test",
+      "mailbox_type": "vendor",
+      "owner_ref": "vendor-parts",
+      "department_code": "",
+      "primary_system": "google-workspace-mail",
+      "default_data_zone": "cloud-business-internal"
+    },
+    {
+      "mailbox_id": "vendor-parts-shipping",
+      "address": "shipping@nexus-parts-vendor.test",
+      "mailbox_type": "vendor",
+      "owner_ref": "vendor-parts",
+      "department_code": "",
+      "primary_system": "google-workspace-mail",
+      "default_data_zone": "cloud-business-internal"
+    },
+    {
+      "mailbox_id": "vendor-coffee-billing",
+      "address": "billing@nexus-coffee-vendor.test",
+      "mailbox_type": "vendor",
+      "owner_ref": "vendor-breakroom",
+      "department_code": "",
+      "primary_system": "google-workspace-mail",
+      "default_data_zone": "cloud-business-internal"
+    }
+  ]
+}

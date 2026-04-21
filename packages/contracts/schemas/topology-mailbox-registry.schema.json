@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/topology-mailbox-registry.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "registry_id",
+    "version",
+    "generated_at",
+    "mailboxes"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "https://nexus-lab-test-bed.local/schemas/topology-mailbox-registry.schema.json"
+    },
+    "registry_id": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/slug"
+    },
+    "version": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/version"
+    },
+    "generated_at": {
+      "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/timestamp"
+    },
+    "mailboxes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "mailbox_id",
+          "address",
+          "mailbox_type",
+          "owner_ref",
+          "primary_system",
+          "default_data_zone"
+        ],
+        "properties": {
+          "mailbox_id": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/slug"
+          },
+          "address": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/email"
+          },
+          "mailbox_type": {
+            "type": "string",
+            "enum": ["human", "shared", "vendor", "system"]
+          },
+          "owner_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "department_code": {
+            "type": "string"
+          },
+          "primary_system": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default_data_zone": {
+            "$ref": "https://nexus-lab-test-bed.local/schemas/topology-common.schema.json#/$defs/slug"
+          }
+        }
+      }
+    }
+  }
+}

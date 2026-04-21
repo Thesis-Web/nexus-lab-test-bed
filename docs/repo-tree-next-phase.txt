@@ -1,60 +1,48 @@
 nexus-lab-test-bed/
 ├── docs/
 │   ├── audits/
-│   │   └── open-enterprise-simulation-gap-log_v1-0-0.md
+│   │   ├── open-enterprise-simulation-gap-log_v1-0-0.md
+│   │   └── phase-d-topology-gap-log_v1-0-0.md
 │   ├── blueprints/
 │   │   ├── nexus_lab_data_bed_blueprint_v1-0-1-canonical.md
-│   │   └── nexus_lab_fake_company_scope_pack_v1-0-0-canonical.md
+│   │   ├── nexus_lab_fake_company_scope_pack_v1-0-0-canonical.md
+│   │   └── nexus_lab_fake_company_topology_v1-0-0-canonical.md
 │   ├── engineering-specs/
 │   │   ├── nexus_lab_data_bed_engineering_spec_v1-0-1-canonical.md
-│   │   └── nexus_lab_fake_company_scope_pack_v1-0-0-engineering-spec.md
-│   ├── repo-tree-next-phase.txt
+│   │   ├── nexus_lab_fake_company_scope_pack_v1-0-0-engineering-spec.md
+│   │   └── nexus_lab_fake_company_topology_v1-0-0-engineering-spec.md
 │   ├── research/
 │   │   └── open-enterprise-simulation-map_v1-0-0.md
-│   └── runbooks/
+│   ├── runbooks/
+│   │   ├── local-bring-up.md
+│   │   └── local-runtime-deployment-v1-0-0.md
+│   ├── repo-tree-next-phase.txt
+│   └── repo-tree.txt
 ├── infra/
-│   ├── compose/
-│   ├── env/
-│   └── postgres/
-│       └── init/
-│           ├── 001_lab_schema.sql
-│           └── 002_fake_company_phase_c.sql
 ├── lab_data/
 │   ├── company/
-│   │   ├── coordination/
-│   │   ├── operations/
-│   │   └── reference/
 │   ├── corpus/
-│   │   ├── calls/
-│   │   ├── docs/
-│   │   ├── email/
-│   │   ├── fixtures/
-│   │   ├── pdfs/
-│   │   ├── tickets/
-│   │   └── workbooks/
 │   ├── mutations/
-│   │   ├── daily/
-│   │   ├── hourly/
-│   │   └── weekly/
 │   ├── registries/
 │   ├── scenarios/
-│   │   ├── manifests/
-│   │   └── packs/
-│   │       ├── customer-ops/
-│   │       ├── finance/
-│   │       ├── logistics/
-│   │       ├── production/
-│   │       └── support/
-│   └── seeds/
-│       ├── json/
-│       └── manifests/
+│   ├── seeds/
+│   └── topology/
+│       ├── data-zones.registry.json
+│       ├── departments.registry.json
+│       ├── ingress-points.registry.json
+│       ├── mailboxes.registry.json
+│       ├── systems.registry.json
+│       └── transactional-chains.registry.json
 ├── packages/
 │   └── contracts/
 │       ├── domain/
 │       ├── schemas/
+│       │   ├── topology-common.schema.json
+│       │   ├── topology-data-zone-registry.schema.json
+│       │   ├── topology-department-registry.schema.json
+│       │   ├── topology-ingress-registry.schema.json
+│       │   ├── topology-mailbox-registry.schema.json
+│       │   ├── topology-system-registry.schema.json
+│       │   └── topology-transactional-chain-registry.schema.json
 │       └── workers/
 └── scripts/
-    ├── local/
-    ├── mutations/
-    ├── seed/
-    └── validate/

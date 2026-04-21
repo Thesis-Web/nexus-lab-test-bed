@@ -1,0 +1,68 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/topology-data-zone-registry.schema.json",
+  "registry_id": "topology-data-zones-default",
+  "version": "v1-0-0",
+  "generated_at": "2026-04-21T00:00:00Z",
+  "data_zones": [
+    {
+      "zone_id": "cloud-collaboration",
+      "title": "Cloud Collaboration",
+      "sensitivity": "internal",
+      "residency": "cloud",
+      "allowed_system_ids": [
+        "github",
+        "slack",
+        "google-workspace-calendar",
+        "google-workspace-docs",
+        "google-workspace-drive",
+        "google-workspace-sheets",
+        "notion",
+        "confluence"
+      ],
+      "notes": "General collaboration, notes, and non-sensitive planning."
+    },
+    {
+      "zone_id": "cloud-business-internal",
+      "title": "Cloud Business Internal",
+      "sensitivity": "confidential",
+      "residency": "cloud",
+      "allowed_system_ids": [
+        "google-workspace-mail",
+        "jira",
+        "slack",
+        "google-workspace-drive",
+        "google-workspace-sheets",
+        "notion"
+      ],
+      "notes": "Day-to-day business coordination and vendor communications."
+    },
+    {
+      "zone_id": "local-restricted",
+      "title": "Local Restricted",
+      "sensitivity": "restricted",
+      "residency": "local",
+      "allowed_system_ids": [
+        "local-libreoffice",
+        "local-restricted-files",
+        "postgres-lab"
+      ],
+      "notes": "Local-only sensitive workbooks, restricted calculations, and private staging."
+    },
+    {
+      "zone_id": "system-of-record",
+      "title": "System of Record",
+      "sensitivity": "restricted",
+      "residency": "mixed",
+      "allowed_system_ids": ["erpnext", "postgres-lab"],
+      "notes": "Canonical operational and financial state objects."
+    },
+    {
+      "zone_id": "audit-evidence",
+      "title": "Audit Evidence",
+      "sensitivity": "restricted",
+      "residency": "local",
+      "allowed_system_ids": ["postgres-lab", "local-restricted-files"],
+      "notes": "Deterministic evidence, decisions, and replay artifacts."
+    }
+  ]
+}

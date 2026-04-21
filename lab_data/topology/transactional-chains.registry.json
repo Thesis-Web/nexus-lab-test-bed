@@ -1,0 +1,197 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/topology-transactional-chain-registry.schema.json",
+  "registry_id": "topology-transactional-chains-default",
+  "version": "v1-0-0",
+  "generated_at": "2026-04-21T00:00:00Z",
+  "transactional_chains": [
+    {
+      "chain_id": "office-supplies-purchase",
+      "title": "Office Supplies Purchase",
+      "objective": "Turn an internal supplies request into approved purchasing, receipt, invoice handling, and synthetic payment posting.",
+      "ingress_ids": ["vendor-email-inbox", "sheet-forecast-update"],
+      "systems_involved": [
+        "google-workspace-mail",
+        "google-workspace-sheets",
+        "erpnext",
+        "local-libreoffice",
+        "postgres-lab"
+      ],
+      "actor_roles": [
+        "purchasing-agent",
+        "inventory-manager",
+        "finance-lead",
+        "staff-accountant",
+        "receiving-clerk"
+      ],
+      "state_objects": [
+        "requisition",
+        "quote",
+        "purchase_order",
+        "receipt",
+        "invoice",
+        "payment_schedule"
+      ],
+      "approval_points": [
+        "over-budget quote",
+        "non-default vendor",
+        "expedited shipping"
+      ],
+      "local_only_steps": ["restricted cost comparison workbook"],
+      "outcome_types": [
+        "approved_purchase",
+        "deferred_purchase",
+        "rejected_purchase"
+      ]
+    },
+    {
+      "chain_id": "parts-reorder",
+      "title": "Parts Reorder",
+      "objective": "Respond to stock pressure and create a replenishment order with approval and receipt tracking.",
+      "ingress_ids": ["erpnext-stock-alert", "slack-ops-channel"],
+      "systems_involved": [
+        "erpnext",
+        "slack",
+        "google-workspace-mail",
+        "postgres-lab"
+      ],
+      "actor_roles": [
+        "inventory-manager",
+        "purchasing-agent",
+        "ops-manager",
+        "receiving-clerk"
+      ],
+      "state_objects": [
+        "inventory_alert",
+        "quote",
+        "purchase_order",
+        "receipt",
+        "inventory_movement"
+      ],
+      "approval_points": [
+        "below-threshold emergency buy",
+        "single-source vendor"
+      ],
+      "local_only_steps": [],
+      "outcome_types": [
+        "reorder_placed",
+        "reorder_escalated",
+        "reorder_blocked"
+      ]
+    },
+    {
+      "chain_id": "vendor-invoice-processing",
+      "title": "Vendor Invoice Processing",
+      "objective": "Match a vendor invoice against purchasing and receipt records and post a synthetic payment state transition.",
+      "ingress_ids": ["vendor-email-inbox"],
+      "systems_involved": [
+        "google-workspace-mail",
+        "erpnext",
+        "local-libreoffice",
+        "postgres-lab"
+      ],
+      "actor_roles": ["staff-accountant", "finance-lead", "purchasing-agent"],
+      "state_objects": [
+        "invoice",
+        "purchase_order",
+        "receipt",
+        "match_exception",
+        "payment_posting"
+      ],
+      "approval_points": [
+        "amount mismatch",
+        "missing receipt",
+        "manual override"
+      ],
+      "local_only_steps": ["restricted AP workbook review"],
+      "outcome_types": ["invoice_paid", "invoice_held", "invoice_escalated"]
+    },
+    {
+      "chain_id": "inventory-shortage-response",
+      "title": "Inventory Shortage Response",
+      "objective": "Detect a shortage, decide allocation or expedite path, and issue operational follow-up.",
+      "ingress_ids": ["erpnext-stock-alert", "slack-ops-channel"],
+      "systems_involved": ["erpnext", "slack", "jira", "postgres-lab"],
+      "actor_roles": [
+        "inventory-manager",
+        "ops-manager",
+        "shipping-coordinator",
+        "sales-lead"
+      ],
+      "state_objects": [
+        "shortage_alert",
+        "allocation_decision",
+        "shipment_change",
+        "task"
+      ],
+      "approval_points": [
+        "customer-priority override",
+        "partial ship approval"
+      ],
+      "local_only_steps": [],
+      "outcome_types": ["allocate_stock", "backorder", "expedite_replenishment"]
+    },
+    {
+      "chain_id": "meeting-to-ticket",
+      "title": "Meeting to Ticket",
+      "objective": "Convert meeting outputs into tracked action items across operational systems.",
+      "ingress_ids": ["calendar-ops-review", "policy-doc-update"],
+      "systems_involved": [
+        "google-workspace-calendar",
+        "google-workspace-docs",
+        "jira",
+        "confluence",
+        "postgres-lab"
+      ],
+      "actor_roles": [
+        "executive-assistant",
+        "ops-manager",
+        "engineer",
+        "support-lead"
+      ],
+      "state_objects": [
+        "meeting_note",
+        "action_item",
+        "ticket",
+        "runbook_update"
+      ],
+      "approval_points": ["cross-department ownership", "priority override"],
+      "local_only_steps": [],
+      "outcome_types": [
+        "ticket_created",
+        "ticket_cluster_created",
+        "follow_up_deferred"
+      ]
+    },
+    {
+      "chain_id": "approval-escalation",
+      "title": "Approval Escalation",
+      "objective": "Escalate a blocked or high-risk request through ordinary business channels without redesigning the business for Nexus.",
+      "ingress_ids": [
+        "slack-ops-channel",
+        "vendor-email-inbox",
+        "jira-ticket-intake"
+      ],
+      "systems_involved": [
+        "slack",
+        "google-workspace-mail",
+        "jira",
+        "notion",
+        "postgres-lab"
+      ],
+      "actor_roles": [
+        "ops-manager",
+        "finance-lead",
+        "human-lab-owner",
+        "executive-assistant"
+      ],
+      "state_objects": ["approval_request", "risk_note", "decision_record"],
+      "approval_points": [
+        "cross-zone access",
+        "high-spend request",
+        "manual exception"
+      ],
+      "local_only_steps": ["restricted decision support workbook"],
+      "outcome_types": ["approved", "rejected", "escalated"]
+    }
+  ]
+}
