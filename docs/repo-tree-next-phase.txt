@@ -1,0 +1,43 @@
+nexus-lab-test-bed/
+├── docs/
+│   ├── blueprints/
+│   │   ├── nexus_lab_data_bed_blueprint_v1-0-1-canonical.md
+│   │   └── nexus_lab_fake_company_scope_pack_v1-0-0-canonical.md
+│   ├── engineering-specs/
+│   │   ├── nexus_lab_data_bed_engineering_spec_v1-0-1-canonical.md
+│   │   └── nexus_lab_fake_company_scope_pack_v1-0-0-engineering-spec.md
+│   └── repo-tree-next-phase.txt
+├── infra/
+├── lab_data/
+│   ├── company/
+│   │   ├── reference/
+│   │   ├── operations/
+│   │   └── coordination/
+│   ├── corpus/
+│   │   ├── docs/
+│   │   ├── pdfs/
+│   │   ├── workbooks/
+│   │   ├── email/
+│   │   ├── calls/
+│   │   ├── tickets/
+│   │   └── fixtures/
+│   ├── mutations/
+│   │   ├── hourly/
+│   │   ├── daily/
+│   │   └── weekly/
+│   ├── registries/
+│   ├── scenarios/
+│   │   ├── manifests/
+│   │   └── packs/
+│   │       ├── customer-ops/
+│   │       ├── finance/
+│   │       ├── logistics/
+│   │       ├── production/
+│   │       └── support/
+│   └── seeds/
+├── packages/
+│   └── contracts/
+│       ├── domain/
+│       ├── schemas/
+│       └── workers/
+└── scripts/
