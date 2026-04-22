@@ -1,0 +1,41 @@
+{
+  "manifest_id": "simulation-sql-draft-pack",
+  "version": "v1-0-0",
+  "status": "draft_only",
+  "files": [
+    {
+      "order": 10,
+      "path": "infra/postgres/drafts/010_simulation_timelines.sql",
+      "purpose": "create timeline root table"
+    },
+    {
+      "order": 20,
+      "path": "infra/postgres/drafts/020_simulation_checkpoints.sql",
+      "purpose": "create checkpoint table"
+    },
+    {
+      "order": 30,
+      "path": "infra/postgres/drafts/030_simulation_state_cursors.sql",
+      "purpose": "create active cursor table"
+    },
+    {
+      "order": 40,
+      "path": "infra/postgres/drafts/040_simulation_tick_ledger.sql",
+      "purpose": "create tick ledger table"
+    },
+    {
+      "order": 50,
+      "path": "infra/postgres/drafts/050_simulation_snapshot_materializations.sql",
+      "purpose": "create snapshot materialization pointer table"
+    },
+    {
+      "order": 60,
+      "path": "infra/postgres/drafts/060_add_simulation_timeline_checkpoint_fks.sql",
+      "purpose": "add deferred timeline checkpoint foreign keys"
+    }
+  ],
+  "notes": [
+    "Not part of infra/postgres/init in this phase.",
+    "Dependency-safe order preserved by deferring timeline checkpoint foreign keys."
+  ]
+}

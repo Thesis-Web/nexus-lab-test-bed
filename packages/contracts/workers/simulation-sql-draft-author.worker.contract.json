@@ -1,0 +1,39 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/worker-contract.schema.json",
+  "worker_id": "worker-simulation-sql-draft-author-v1",
+  "title": "Simulation SQL Draft Author Worker v1",
+  "version": "v1-0-0",
+  "allowed_capabilities": [
+    "simulation.sql.draft",
+    "simulation.migration.review",
+    "registry.read"
+  ],
+  "side_effects": ["file_read", "file_write"],
+  "determinism": [
+    "Must derive SQL drafts only from declared simulation planning artifacts.",
+    "Must keep drafts outside infra/postgres/init until explicitly approved.",
+    "Must not use uncontrolled randomness.",
+    "Must not write to AI-control roots."
+  ],
+  "runtime": {
+    "language": "typescript",
+    "entrypoint": "apps/workers/simulation-sql-draft-author/src/main.ts",
+    "mode": "bounded"
+  },
+  "input_contract": {
+    "type": "object",
+    "required_fields": ["draft_scope", "issued_at"],
+    "notes": [
+      "Draft scope may target timelines, checkpoints, cursors, tick ledger, or snapshot materializations.",
+      "Phase M allows draft SQL authoring only, not live apply."
+    ]
+  },
+  "output_contract": {
+    "type": "object",
+    "required_fields": ["draft_scope", "result_status", "draft_files"],
+    "notes": [
+      "Output is a draft pack only.",
+      "Future phases may promote approved drafts into live SQL surfaces."
+    ]
+  }
+}
