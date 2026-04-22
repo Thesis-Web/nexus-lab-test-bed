@@ -1,0 +1,39 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/worker-contract.schema.json",
+  "worker_id": "worker-simulation-sql-planner-v1",
+  "title": "Simulation SQL Planner Worker v1",
+  "version": "v1-0-0",
+  "allowed_capabilities": [
+    "simulation.sql.plan",
+    "simulation.persistence.map",
+    "registry.read"
+  ],
+  "side_effects": ["file_read"],
+  "determinism": [
+    "Must derive SQL planning recommendations only from declared simulation planning artifacts.",
+    "Must not emit live DDL into infra/postgres/init without later owner approval.",
+    "Must not use uncontrolled randomness.",
+    "Must not write to AI-control roots."
+  ],
+  "runtime": {
+    "language": "typescript",
+    "entrypoint": "apps/workers/simulation-sql-planner/src/main.ts",
+    "mode": "bounded"
+  },
+  "input_contract": {
+    "type": "object",
+    "required_fields": ["planning_scope", "issued_at"],
+    "notes": [
+      "Planning scope may target cursors, timelines, checkpoints, tick ledger, or snapshot materializations.",
+      "Phase K defines planning surfaces only; no live SQL emission is allowed in this phase."
+    ]
+  },
+  "output_contract": {
+    "type": "object",
+    "required_fields": ["planning_scope", "result_status", "proposed_objects"],
+    "notes": [
+      "Output is advisory planning only.",
+      "Future phases may convert approved plans into real DDL artifacts."
+    ]
+  }
+}
