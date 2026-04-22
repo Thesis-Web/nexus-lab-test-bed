@@ -1,0 +1,57 @@
+{
+  "manifest_id": "simulation-sql-promotion-decisions-phase-p",
+  "version": "v1-0-0",
+  "status": "classification_update_only",
+  "units": [
+    {
+      "unit_id": "unit-a-base-tables",
+      "files": [
+        "infra/postgres/drafts/live-candidates/010_simulation_timelines.live-candidate.sql",
+        "infra/postgres/drafts/live-candidates/020_simulation_checkpoints.live-candidate.sql"
+      ],
+      "decision": "promotable_now",
+      "rationale": [
+        "Minor amendment pass completed.",
+        "Status, capture_mode, and stage_id value safety are now explicitly constrained.",
+        "Lookup indexes needed for lineage and ancestry review are present."
+      ]
+    },
+    {
+      "unit_id": "unit-b-cursor",
+      "files": ["infra/postgres/drafts/030_simulation_state_cursors.sql"],
+      "decision": "promotable_now",
+      "rationale": ["No change from Phase O."]
+    },
+    {
+      "unit_id": "unit-c-tick-ledger",
+      "files": ["infra/postgres/drafts/040_simulation_tick_ledger.sql"],
+      "decision": "blocked_pending_owner_decision",
+      "rationale": ["Retention and growth strategy remain unresolved."]
+    },
+    {
+      "unit_id": "unit-d-snapshot-materializations",
+      "files": [
+        "infra/postgres/drafts/050_simulation_snapshot_materializations.sql"
+      ],
+      "decision": "blocked_pending_owner_decision",
+      "rationale": ["Storage target and serialization remain unresolved."]
+    },
+    {
+      "unit_id": "unit-e-deferred-fks",
+      "files": [
+        "infra/postgres/drafts/060_add_simulation_timeline_checkpoint_fks.sql"
+      ],
+      "decision": "defer_future_phase",
+      "rationale": [
+        "Still best deferred until explicit base promotion approval."
+      ]
+    }
+  ],
+  "allowed_decisions": [
+    "promotable_now",
+    "promotable_after_minor_amend",
+    "blocked_pending_owner_decision",
+    "defer_future_phase"
+  ],
+  "notes": ["Classification update only.", "No SQL becomes live in this phase."]
+}
