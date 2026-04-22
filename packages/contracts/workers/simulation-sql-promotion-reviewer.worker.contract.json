@@ -1,0 +1,39 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/worker-contract.schema.json",
+  "worker_id": "worker-simulation-sql-promotion-reviewer-v1",
+  "title": "Simulation SQL Promotion Reviewer Worker v1",
+  "version": "v1-0-0",
+  "allowed_capabilities": [
+    "simulation.sql.review",
+    "simulation.sql.promotion.plan",
+    "registry.read"
+  ],
+  "side_effects": ["file_read", "file_write"],
+  "determinism": [
+    "Must review only declared simulation SQL draft artifacts and planning docs.",
+    "Must not promote drafts into live init surfaces in this phase.",
+    "Must not use uncontrolled randomness.",
+    "Must not write to AI-control roots."
+  ],
+  "runtime": {
+    "language": "typescript",
+    "entrypoint": "apps/workers/simulation-sql-promotion-reviewer/src/main.ts",
+    "mode": "bounded"
+  },
+  "input_contract": {
+    "type": "object",
+    "required_fields": ["review_scope", "issued_at"],
+    "notes": [
+      "Review scope may target one or more draft SQL units.",
+      "Phase N allows classification and review only."
+    ]
+  },
+  "output_contract": {
+    "type": "object",
+    "required_fields": ["review_scope", "result_status", "unit_decisions"],
+    "notes": [
+      "Output is review-only classification.",
+      "Any live promotion requires later explicit owner approval."
+    ]
+  }
+}
