@@ -10,7 +10,7 @@
     "simulation.persistence.tick_ledger",
     "simulation.persistence.snapshot"
   ],
-  "side_effects": ["file_read", "db_write", "db_read"],
+  "side_effects": ["file_read", "db_write"],
   "determinism": [
     "Must persist only declared simulation state objects.",
     "Must preserve explicit timeline and checkpoint lineage.",
