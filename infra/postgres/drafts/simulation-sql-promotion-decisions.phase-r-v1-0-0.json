@@ -1,0 +1,41 @@
+{
+  "manifest_id": "simulation-sql-promotion-decisions-phase-r",
+  "version": "v1-0-0",
+  "status": "classification_update_only",
+  "units": [
+    {
+      "unit_id": "unit-a-base-tables",
+      "decision": "promotable_now"
+    },
+    {
+      "unit_id": "unit-b-cursor",
+      "decision": "promotable_now"
+    },
+    {
+      "unit_id": "unit-ab-combined-pack",
+      "decision": "ready_for_live_admission_review",
+      "files": [
+        "infra/postgres/drafts/live-candidates/010_simulation_timelines.live-candidate.sql",
+        "infra/postgres/drafts/live-candidates/020_simulation_checkpoints.live-candidate.sql",
+        "infra/postgres/drafts/live-candidates/030_simulation_state_cursors.live-candidate.sql"
+      ],
+      "rationale": [
+        "Represents the smallest coherent simulation persistence base.",
+        "Excludes unresolved ledger and snapshot surfaces."
+      ]
+    },
+    {
+      "unit_id": "unit-c-tick-ledger",
+      "decision": "blocked_pending_owner_decision"
+    },
+    {
+      "unit_id": "unit-d-snapshot-materializations",
+      "decision": "blocked_pending_owner_decision"
+    },
+    {
+      "unit_id": "unit-e-deferred-fks",
+      "decision": "defer_future_phase"
+    }
+  ],
+  "notes": ["Classification update only.", "No SQL becomes live in this phase."]
+}
