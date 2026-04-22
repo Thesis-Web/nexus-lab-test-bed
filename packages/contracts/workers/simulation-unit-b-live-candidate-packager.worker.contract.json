@@ -1,0 +1,39 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/worker-contract.schema.json",
+  "worker_id": "worker-simulation-unit-b-live-candidate-packager-v1",
+  "title": "Simulation Unit B Live Candidate Packager Worker v1",
+  "version": "v1-0-0",
+  "allowed_capabilities": [
+    "simulation.sql.package",
+    "simulation.sql.review",
+    "registry.read"
+  ],
+  "side_effects": ["file_read", "file_write"],
+  "determinism": [
+    "Must package only declared Unit B simulation SQL draft artifacts.",
+    "Must not promote SQL into live init surfaces in this phase.",
+    "Must not use uncontrolled randomness.",
+    "Must not write to AI-control roots."
+  ],
+  "runtime": {
+    "language": "typescript",
+    "entrypoint": "apps/workers/simulation-unit-b-live-candidate-packager/src/main.ts",
+    "mode": "bounded"
+  },
+  "input_contract": {
+    "type": "object",
+    "required_fields": ["packaging_scope", "issued_at"],
+    "notes": [
+      "Packaging scope is limited to Unit B cursor draft in this phase.",
+      "Output remains draft-only."
+    ]
+  },
+  "output_contract": {
+    "type": "object",
+    "required_fields": ["packaging_scope", "result_status", "packaged_files"],
+    "notes": [
+      "Output is packaged live-candidate draft SQL only.",
+      "Any live promotion requires a later explicit owner-approved phase."
+    ]
+  }
+}
