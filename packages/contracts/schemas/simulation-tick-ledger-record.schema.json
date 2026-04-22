@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/simulation-tick-ledger-record.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "tick_ledger_id",
+    "timeline_id",
+    "checkpoint_id",
+    "tick_id",
+    "started_at",
+    "completed_at",
+    "applied_generator_ids",
+    "emitted_artifact_refs",
+    "world_state_hash_before",
+    "world_state_hash_after"
+  ],
+  "properties": {
+    "tick_ledger_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timeline_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "checkpoint_id": {
+      "type": ["string", "null"]
+    },
+    "tick_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "applied_generator_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "emitted_artifact_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "world_state_hash_before": {
+      "type": "string",
+      "minLength": 1
+    },
+    "world_state_hash_after": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

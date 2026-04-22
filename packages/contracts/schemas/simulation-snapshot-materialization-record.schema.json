@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/simulation-snapshot-materialization-record.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "materialization_id",
+    "checkpoint_id",
+    "storage_mode",
+    "storage_ref",
+    "serialization_format",
+    "created_at"
+  ],
+  "properties": {
+    "materialization_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "checkpoint_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "storage_mode": {
+      "type": "string",
+      "enum": ["filesystem", "blob_store_placeholder", "database_placeholder"]
+    },
+    "storage_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "serialization_format": {
+      "type": "string",
+      "enum": ["json_bundle", "jsonl_bundle", "tarball_placeholder"]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/worker-contract.schema.json",
+  "worker_id": "worker-simulation-persistence-manager-v1",
+  "title": "Simulation Persistence Manager Worker v1",
+  "version": "v1-0-0",
+  "allowed_capabilities": [
+    "simulation.persistence.cursor",
+    "simulation.persistence.timeline",
+    "simulation.persistence.checkpoint",
+    "simulation.persistence.tick_ledger",
+    "simulation.persistence.snapshot"
+  ],
+  "side_effects": ["file_read", "db_write", "db_read"],
+  "determinism": [
+    "Must persist only declared simulation state objects.",
+    "Must preserve explicit timeline and checkpoint lineage.",
+    "Must not use uncontrolled randomness.",
+    "Must not write to AI-control roots."
+  ],
+  "runtime": {
+    "language": "typescript",
+    "entrypoint": "apps/workers/simulation-persistence-manager/src/main.ts",
+    "mode": "bounded"
+  },
+  "input_contract": {
+    "type": "object",
+    "required_fields": ["command", "issued_at"],
+    "notes": [
+      "Command must conform to simulation-persistence-command.schema.json.",
+      "Future implementations may require timeline_id, checkpoint_id, cursor_id, or tick_ledger_id depending on command."
+    ]
+  },
+  "output_contract": {
+    "type": "object",
+    "required_fields": ["command", "result_status", "object_type", "object_id"],
+    "notes": [
+      "Phase J defines persistence contract surfaces only.",
+      "Future runtime phases may return storage refs, SQL row identifiers, and materialization metadata."
+    ]
+  }
+}

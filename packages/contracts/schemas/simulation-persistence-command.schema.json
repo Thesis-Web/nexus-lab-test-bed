@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus-lab-test-bed.local/schemas/simulation-persistence-command.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["command", "issued_at"],
+  "properties": {
+    "command": {
+      "type": "string",
+      "enum": [
+        "persist_cursor",
+        "persist_checkpoint",
+        "persist_timeline",
+        "persist_tick_ledger",
+        "persist_snapshot_materialization",
+        "load_cursor",
+        "load_checkpoint",
+        "load_timeline_head",
+        "list_timeline_checkpoints"
+      ]
+    },
+    "timeline_id": {
+      "type": ["string", "null"]
+    },
+    "checkpoint_id": {
+      "type": ["string", "null"]
+    },
+    "cursor_id": {
+      "type": ["string", "null"]
+    },
+    "tick_ledger_id": {
+      "type": ["string", "null"]
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": ["string", "null"]
+    }
+  }
+}
