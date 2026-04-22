@@ -1,0 +1,39 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/worker-contract.schema.json",
+  "worker_id": "worker-simulation-live-init-admission-reviewer-v1",
+  "title": "Simulation Live Init Admission Reviewer Worker v1",
+  "version": "v1-0-0",
+  "allowed_capabilities": [
+    "simulation.sql.review",
+    "simulation.sql.admission",
+    "registry.read"
+  ],
+  "side_effects": ["file_read", "file_write"],
+  "determinism": [
+    "Must review only declared Unit A+B live-candidate SQL artifacts and promotion-planning manifests.",
+    "Must not promote SQL into live init surfaces in this phase.",
+    "Must not use uncontrolled randomness.",
+    "Must not write to AI-control roots."
+  ],
+  "runtime": {
+    "language": "typescript",
+    "entrypoint": "apps/workers/simulation-live-init-admission-reviewer/src/main.ts",
+    "mode": "bounded"
+  },
+  "input_contract": {
+    "type": "object",
+    "required_fields": ["review_scope", "issued_at"],
+    "notes": [
+      "Review scope is limited to the combined Unit A+B live-candidate set in this phase.",
+      "Output remains review-only."
+    ]
+  },
+  "output_contract": {
+    "type": "object",
+    "required_fields": ["review_scope", "result_status", "admission_result"],
+    "notes": [
+      "Output is an admission-review result only.",
+      "Any live promotion requires later explicit owner approval."
+    ]
+  }
+}

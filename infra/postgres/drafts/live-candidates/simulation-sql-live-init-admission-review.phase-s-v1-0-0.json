@@ -1,0 +1,59 @@
+{
+  "manifest_id": "simulation-sql-live-init-admission-review",
+  "version": "phase-s-v1-0-0",
+  "status": "eligible_for_owner_approval_to_promote",
+  "candidate_files": [
+    "infra/postgres/drafts/live-candidates/010_simulation_timelines.live-candidate.sql",
+    "infra/postgres/drafts/live-candidates/020_simulation_checkpoints.live-candidate.sql",
+    "infra/postgres/drafts/live-candidates/030_simulation_state_cursors.live-candidate.sql"
+  ],
+  "admission_checks": [
+    {
+      "check_id": "additive_only",
+      "result": "pass"
+    },
+    {
+      "check_id": "no_business_table_mutation",
+      "result": "pass"
+    },
+    {
+      "check_id": "dependency_safe_order",
+      "result": "pass"
+    },
+    {
+      "check_id": "explicit_constraint_surface",
+      "result": "pass"
+    },
+    {
+      "check_id": "no_ai_control_coupling",
+      "result": "pass"
+    },
+    {
+      "check_id": "local_runtime_law_compatible",
+      "result": "pass"
+    },
+    {
+      "check_id": "excludes_unresolved_units_c_d_e",
+      "result": "pass"
+    }
+  ],
+  "excluded_units": [
+    {
+      "unit_id": "unit-c-tick-ledger",
+      "decision": "blocked_pending_owner_decision"
+    },
+    {
+      "unit_id": "unit-d-snapshot-materializations",
+      "decision": "blocked_pending_owner_decision"
+    },
+    {
+      "unit_id": "unit-e-deferred-fks",
+      "decision": "defer_future_phase"
+    }
+  ],
+  "notes": [
+    "Admission review only.",
+    "No live promotion occurs in this phase.",
+    "Owner approval is still required before any live SQL move."
+  ]
+}
