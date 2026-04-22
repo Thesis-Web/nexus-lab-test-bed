@@ -1,0 +1,43 @@
+{
+  "schema_id": "https://nexus-lab-test-bed.local/schemas/worker-contract.schema.json",
+  "worker_id": "worker-simulation-ddl-planner-v1",
+  "title": "Simulation DDL Planner Worker v1",
+  "version": "v1-0-0",
+  "allowed_capabilities": [
+    "simulation.ddl.plan",
+    "simulation.migration.order",
+    "registry.read"
+  ],
+  "side_effects": ["file_read"],
+  "determinism": [
+    "Must derive DDL planning output only from declared simulation planning artifacts.",
+    "Must not emit live SQL under infra/postgres/init in this phase.",
+    "Must not use uncontrolled randomness.",
+    "Must not write to AI-control roots."
+  ],
+  "runtime": {
+    "language": "typescript",
+    "entrypoint": "apps/workers/simulation-ddl-planner/src/main.ts",
+    "mode": "bounded"
+  },
+  "input_contract": {
+    "type": "object",
+    "required_fields": ["planning_scope", "issued_at"],
+    "notes": [
+      "Planning scope may target timelines, checkpoints, cursors, tick ledger, or snapshot materializations.",
+      "Phase L defines DDL planning only and does not allow live migration emission."
+    ]
+  },
+  "output_contract": {
+    "type": "object",
+    "required_fields": [
+      "planning_scope",
+      "result_status",
+      "proposed_migration_objects"
+    ],
+    "notes": [
+      "Output is advisory planning only.",
+      "Future phases may convert approved plans into real DDL artifacts."
+    ]
+  }
+}
