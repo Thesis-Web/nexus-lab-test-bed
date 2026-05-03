@@ -1,6 +1,7 @@
 # SOP — Work Order Reschedule
 
 When a maintenance blocker affects production:
+
 - verify asset and ticket status
 - recalculate earliest work center availability
 - notify operations and logistics of output impact

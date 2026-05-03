@@ -3,6 +3,7 @@
 Operational domain seeds live in `lab_data/seeds/json/`.
 
 Operations domains in phase C:
+
 - inventory_positions
 - inventory_movements
 - purchase_orders

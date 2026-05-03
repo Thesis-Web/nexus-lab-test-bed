@@ -3,6 +3,7 @@
 Coordination domain seeds live in `lab_data/seeds/json/`.
 
 Coordination domains in phase C:
+
 - meetings
 - meeting_action_items
 - tasks

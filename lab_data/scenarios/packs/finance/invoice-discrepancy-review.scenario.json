@@ -11,9 +11,7 @@
     "service-nexus",
     "worker-scenario-runner-v1"
   ],
-  "models_in_scope": [
-    "ollama-llama3_2-laptop"
-  ],
+  "models_in_scope": ["ollama-llama3_2-laptop"],
   "policies_in_scope": [
     "allow-fake-company-local-inference",
     "allow-ops-logistics-execution",
@@ -34,9 +32,7 @@
       "input_ref": "inputs.invoice_code",
       "expected_outcome": {
         "decision": "allow",
-        "reason_contains": [
-          "allow"
-        ]
+        "reason_contains": ["allow"]
       }
     },
     {
@@ -48,10 +44,7 @@
       "input_ref": "inputs.invoice_code",
       "expected_outcome": {
         "decision": "allow",
-        "reason_contains": [
-          "allow",
-          "local"
-        ]
+        "reason_contains": ["allow", "local"]
       }
     },
     {
@@ -62,9 +55,7 @@
       "input_ref": "inputs.payment_code",
       "expected_outcome": {
         "decision": "require_approval",
-        "reason_contains": [
-          "approval"
-        ]
+        "reason_contains": ["approval"]
       }
     }
   ],
