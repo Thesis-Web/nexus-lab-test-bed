@@ -13,7 +13,8 @@
     "seed:registries": "node ./scripts/seed/load-registry-bundles.mjs",
     "seed:domain": "node ./scripts/seed/load-domain-seeds.mjs",
     "seed:all": "node ./scripts/seed/load-all.mjs",
-    "lab:reset": "bash ./scripts/local/reset-lab.sh"
+    "lab:reset": "bash ./scripts/local/reset-lab.sh",
+    "mail:smoke": "bash ./scripts/local/mailpit-smoke.sh"
   },
   "dependencies": {
     "pg": "^8.12.0"

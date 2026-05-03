@@ -19,4 +19,8 @@ until docker compose --env-file "${ENV_FILE}" -f "${COMPOSE_FILE}" exec -T postg
 done
 
 echo "Postgres is healthy."
+echo "Mailpit UI/API:"
+echo "  http://127.0.0.1:${LAB_MAILPIT_HTTP_PORT}"
+echo "Mailpit SMTP:"
+echo "  127.0.0.1:${LAB_MAILPIT_SMTP_PORT}"
 cd "${REPO_ROOT}"

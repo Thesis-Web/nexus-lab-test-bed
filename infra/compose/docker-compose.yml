@@ -38,3 +38,18 @@ services:
       - "127.0.0.1:${LAB_PGADMIN_PORT}:80"
     volumes:
       - ${LAB_PGADMIN_HOST_PATH}:/var/lib/pgadmin
+
+  mailpit:
+    image: ${LAB_MAILPIT_IMAGE}
+    container_name: nexus-lab-mailpit
+    restart: unless-stopped
+    environment:
+      MP_DATABASE: /data/mailpit.db
+      MP_MAX_MESSAGES: ${LAB_MAILPIT_MAX_MESSAGES}
+      MP_LABEL: "nexus-lab-test-bed local mailbox"
+      MP_DISABLE_VERSION_CHECK: "true"
+    ports:
+      - "127.0.0.1:${LAB_MAILPIT_HTTP_PORT}:8025"
+      - "127.0.0.1:${LAB_MAILPIT_SMTP_PORT}:1025"
+    volumes:
+      - ${LAB_MAILPIT_DATA_HOST_PATH}:/data
